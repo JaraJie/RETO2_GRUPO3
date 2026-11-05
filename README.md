@@ -20,6 +20,10 @@ El proyecto cuenta con tres páginas principales además de la página de inicio
 
 Para dar formato y diseñar las diferentes páginas de TalentConnect, hemos utilizado una hoja de estilos CSS externa llamada `Estilos.css`, que se encuentra dentro de la carpeta `style`.
 
+```html
+<link rel="stylesheet" href="style/Estilos.css">
+```
+
 Desde este archivo se controlan aspectos visuales como:
 
 - Los colores y fondos de la página.
@@ -86,14 +90,97 @@ Las tarjetas tienen enlaces para navegar a sus respectivas páginas y un pequeñ
 
 En la parte inferior de la página se encuentra el footer, que incluye el nombre de TalentConnect, una frase representativa de la empresa y el aviso de copyright con los derechos reservados.
 
-## Página Empleos - `empleos.html`
-
-Texto
-
 ## Página CV - `form_cv.html`
 
-Texto
+Esta página contiene un formulario para que los usuarios puedan introducir sus datos personales y comenzar a crear su CV.
 
-## Página Empresa - `empresas.html`
+Al igual que en la página principal, cuenta con un encabezado que incluye el logo de TalentConnect y el menú de navegación para acceder al resto de páginas.
 
-Texto
+También, cuenta con una pequeña introducción donde podemos ver el titulo acompañado de un pequeño texto.
+
+### 1. Datos personales
+Este formulario recoge información necesaria para elaborar un CV. Incluye los siguientes campos:
+
+- **Nombre**: `type="text"`
+
+- **Apellidos**: `type="text"`
+
+- **Correo**: `type="email"`
+
+- **Telefono**: `type="tel"`
+
+- **Ciudad**: `type="text"`
+
+### 2. Formación académica
+
+En este apartado se recoge la información relacionada con los estudios del usuario. Incluye campos como:
+
+- **Nivel de estudios**: `<select>`
+
+- **Estudios realizados**: `type="text"`
+
+- **Centro educativo**: `type="text"`
+
+- **Año de inicio y finalización**: `type="date"`
+
+### 3. Experiencia laboral
+
+Este apartado permite añadir información sobre los trabajos que ha realizado el usuario anteriormente. Incluye:
+
+- **Puesto de trabajo**: `type="text"`
+
+- **Empresa**: `type="text"`
+
+- **Fecha inicio/fin**: `type="date"`
+
+- **Descripción del puesto**: `<textarea>`
+
+### 4. Habilidades
+
+En este último apartado se recogen las capacidades y conocimientos del usuario. Se divide en diferentes categorías:
+
+- **Softskills**: `type="checkbox"`
+
+- **Softwares**: `type="checkbox"`
+
+- **Idiomas**: `<select>`
+
+- **Nivel de idiomas**: `type="radio"`
+
+### Botón de envío
+
+Al final del formulario encontramos el botón «ENVIAR» y al pulsarlo se ejecuta la función javascript encargada de validar el formulario.
+
+## JavaScript - `form.js`
+
+Para añadir funcionalidad al formulario hemos creado un archivo javascript externo llamado `form.js`, que se encuentra dentro de la carpeta `javascript`.
+
+Este archivo está vinculado al documento html mediante la etiqueta script, situada al final del body.
+
+```html
+<script src="javascript/form.js"></script>
+```
+
+Por el momento, hemos desarrollado la función validarFormulario(event), que se ejecuta cuando el usuario pulsa el botón de envío.
+
+Esta función realiza las siguientes acciones:
+
+- Evita que la página se recargue utilizando event.preventDefault().
+
+- Recoge los datos introducidos en los campos mediante document.getElementById() y la propiedad .value.
+
+- Elimina los espacios innecesarios al principio y al final del texto utilizando .trim().
+
+- Muestra los datos en la consola del navegador mediante console.log().
+
+- Muestra un mensaje de confirmación mediante alert(), indicando al usuario que sus datos se han validado correctamente.
+
+La función está todavía en desarrollo. Por lo tanto, el formulario aún no guarda ni envía la información a una base de datos.
+
+
+## `empresas.html` y `empleos.html`
+Ambas páginas están destinadas a mostrar las ofertas de trabajo disponibles y la información sobre las empresas colaboradoras de TalentConnect.
+
+Por el momento, hemos añadido en las dos páginas el encabezado (header), que incluye el logo y el menú de navegación, manteniendo la misma estética que en el resto del proyecto.
+
+Además, hemos incorporado un mensaje de «COMING SOON» en grande para indicar que ambas secciones estarán disponibles próximamente.
