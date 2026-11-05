@@ -1,5 +1,14 @@
 /*AUTOR: JARA*/
 /*EMPIEZA CSS DE PAGINAWEB*/
+
+
+/*COMPARATIVA CON LA IA: ME DICE DE AÑADIR UN DISEÑO RESPONSIVE PARA TABLETS Y MÓVILES
+@media (max-width: 768px){
+...
+}
+*/
+
+
 *{
     margin: 0;
     padding: 0;
@@ -32,6 +41,23 @@ body{
     gap: 20px;
 }
 
+
+/*COMPARATIVA CON LA IA: ME DICE MEJORAR .menu a
+PARA AÑADIR UNA TRANSICIÓN MÁS VISUAL
+.menu a{
+    text-decoration: none;
+    color: #555;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color .3s ease, transform .3s ease;
+}
+
+.menu a:hover{
+    color: #2d6da3;
+    transform: translateY(-2px);
+}*/
+
+
 /*ESTILO DE LOS ANCHORS*/
 .menu a{
     text-decoration: none;
@@ -46,6 +72,25 @@ body{
     color: #2d6da3;
 }
 
+
+/*COMPARATIVA CON LA IA: ME DICE MEJORAR .contact
+PARA QUE HAYA UN EFECTO AL PASAR EL RATÓN POR ENCIMA
+.contact{
+    text-decoration: none;
+    color: #2d6da3;
+    border: 2px solid #2d6da3;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all .3s ease;
+}
+
+.contact:hover{
+    background-color: #2d6da3;
+    color: white;
+}*/
+
+
 /*ESTILO TEXTO CONTACT US*/
 .contact{
     text-decoration: none;
@@ -54,6 +99,25 @@ body{
     padding: 12px 20px;
     font-weight: bold;
 }
+
+
+/*COMPARATIVA CON LA IA: ME DICE MEJORAR .portada
+PARA AÑADIR UNA CAPA OSCURA SOBRE LA IMAGEN Y EL TEXTO DESTAQUE MÁS
+.portada::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.25);
+    z-index: 1;
+}
+
+.contenido_portada{
+    z-index: 2;
+}*/
+
 
 /*CSS PORTADA*/
 .portada{
@@ -75,6 +139,20 @@ body{
     object-fit: cover;
     display: block;
 }
+
+
+/*COMPARATIVA CON LA IA: ME DICE MEJORAR EL TEXTO DE .contenido_portada
+.contenido_portada h1{
+    font-size: 60px;
+    text-shadow: 0 4px 10px rgba(0,0,0,.7);
+    margin-bottom: 15px;
+}
+
+.contenido_portada p{
+    font-size: 30px;
+    text-shadow: 0 2px 8px rgba(0,0,0,.7);
+}*/
+
 
 /*CONTENIDO CENTRADO DEL TEXTO EN LA PORTADA*/
 .contenido_portada{
@@ -171,6 +249,26 @@ body{
     gap: 30px;
     margin-top: 40px;
 }
+
+
+/*COMPARATIVA CON LA IA: ME DICE MEJORAR .tarjeta
+PARA QUE LAS TARJETAS NO SALTÉN BRUSCAMENTE, SINO QUE SE MUEVAN DE FORMA PROGRESIVA
+.tarjeta{
+    flex: 1;
+    background: #EAF4FC;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+
+    transition: transform .3s ease, box-shadow .3s ease;
+}*/
+
 
 /*EDITAR EL CONTENIDO DE LA FLEXBOX*/
 .tarjeta{
