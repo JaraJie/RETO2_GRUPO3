@@ -211,3 +211,35 @@ LO BUSQUÉ EN INTERENT*/
     line-height: 1.6;
     font-size: 18px;
 }
+
+
+.footer{
+    background-color: #5F84A2;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer_logo h3{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.footer_logo p{
+    color: #EAF4FC;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.footer hr{
+    width: 70%;
+    margin: 0 auto 20px;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,.3);
+}
+
+.copyright{
+    color: #EAF4FC;
+    font-size: 15px;
+}
