@@ -47,13 +47,13 @@
         </p>
 
         <!-- EMPIEZA FORMULARIO -->
-        <form id="formularioCV">
+        <form id="formularioCV" onsubmit="validarFormulario(event)">
 
             <!-- INFORMACIÓN PERSONAL -->
             <h2>Información personal</h2>
 
             <!-- PRIMERA FILA: NOMBRES Y APELLIDOS-->
-            <div class="campos_cv">
+            <div class="campos_cv" onsubmit="validarFormulario(event)">
 
                 <div class="campo_cv">
                     <label for="nombre">Nombre*</label>
