@@ -31,6 +31,18 @@ body{
     gap: 20px;
 }
 
+.menu a{
+    text-decoration: none;
+    color: #555;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color .3s ease;
+}
+
+.menu a:hover{
+    color: #2d6da3;
+}
+
 /*ESTILO TEXTO CONTACT US*/
 .contact{
     text-decoration: none;
