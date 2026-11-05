@@ -31,6 +31,7 @@ body{
     gap: 20px;
 }
 
+/*ESTILO DE LOS ANCHORS*/
 .menu a{
     text-decoration: none;
     color: #555;
@@ -39,6 +40,7 @@ body{
     transition: color .3s ease;
 }
 
+/*PARA QUE CUANDO TENGAS EL RATON ENCIMA DEL ANCHOR CAMBIE DE COLOR*/
 .menu a:hover{
     color: #2d6da3;
 }
