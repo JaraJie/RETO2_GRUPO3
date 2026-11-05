@@ -4,6 +4,10 @@
 //FUNCIÓN PARA VALIDAR FORMULARIO
 function validarFormulario(event) {
 
+    //EVITAMOS QUE LA PÁGINA SE RECARGUE
+    //JARA: LOS BUSQUE EN INTERNET PORQUE NO PODIA COMPROBAR LOS DATOS EN LA CONSOLA Y ME DECIA DE PONER ESTO
+    event.preventDefault();
+
     //RECOGEMOS LOS DATOS DEL USUARIO
     const nombre = document.getElementById("nombre").value.trim();
     const apellidos = document.getElementById("apellidos").value.trim();
