@@ -16,8 +16,11 @@ function validarFormulario(event) {
     console.log("Nombre:", nombre);
     console.log("Apellidos:", apellidos);
 
-
     //ALERTAMOS CON UN MENSAJE DE CONFIRMACIÓN
     alert("¡Perfecto! Tus datos se han validado correctamente.");
 
 }
+
+//RECORDAD Y PONER LOS DEMÁS DATOS PARA QUE SE GUARDE EN CONSOLA
+//CREAR FUNCIONES PARA QUE LOS CAMPOS NO ESTEN VACIOS Y QUE ALERTE
+//OTRAS FUNCIONES COMO LAS HEMOS HECHO EN CLASE DE QUE EL NOMBRE TENGA 3 CARÁCTERES POR LO MENOS
