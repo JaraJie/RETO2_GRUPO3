@@ -130,12 +130,14 @@ body{
     color: #555;
 }
 
+/*CSS PARA LA LINEA DE SEPARACIÓN ENTRE SECCIONES*/
 .separador{
     width: 85%;
     margin: 20px auto;
     border-top: 2px solid #BFD8EE;
 }
 
+/*CSS SECCIÓN SERVICIOS*/
 .seccion_servicios{
     padding: 30px 80px 70px;
 }
@@ -147,6 +149,7 @@ body{
     font-weight: 400;
 }
 
+/*FLEXBOX PARA LOS SERVICIOS*/
 .servicios{
     display: flex;
     justify-content: space-between;
@@ -154,6 +157,7 @@ body{
     margin-top: 40px;
 }
 
+/*EDITAR EL CONTENIDO DE LA FLEXBOX*/
 .tarjeta{
     flex: 1;
     background: #EAF4FC;
@@ -166,16 +170,20 @@ body{
     text-align: center;
 }
 
+/*PARA QUE CUANDO PASES EL RATON LA TARJETITA SE AGRANDE
+LO BUSQUÉ EN INTERENT*/
 .tarjeta:hover{
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0,0,0,.15);
 }
 
+/*MODIFICAR TAMAÑO DEL EMOTICONO*/
 .icono{
     font-size: 50px;
     margin-bottom: 20px;
 }
 
+/*MODIFICAR TEXTO DENTRO DE LA TARJETA*/
 .tarjeta h3{
     color: #2d6da3;
     font-size: 28px;
