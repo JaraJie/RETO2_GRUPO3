@@ -346,5 +346,89 @@ LO BUSQUÉ EN INTERENT*/
     font-size: 15px;
 }
 
-/*AUTOR JARA*/
+/*AUTOR: JARA*/
 /*TERMINA CSS DE PAGINAWEB*/
+
+/*------------------------------------------------------------*/
+
+/*AUTOR: JARA*/
+/*EMPIEZA CSS DE FORM_CV*/
+.seccion_cv{
+    padding: 50px 80px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.seccion_cv h1{
+    font-size: 42px;
+    color: #2d6da3;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.info_cv{
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+#formularioCV{
+    background-color: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+}
+
+#formularioCV h2{
+    font-size: 28px;
+    color: #2d6da3;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.campos_cv{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px 20px;
+}
+
+.campo_cv{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+}
+
+.campo_cv label{
+    color: #777;
+    font-size: 15px;
+}
+
+.campo_cv input{
+    padding: 14px;
+    border: none;
+    border-bottom: 2px solid #999;
+    background-color: #F3F3F3;
+    font-size: 15px;
+    outline: none;
+}
+
+.contenedor_boton{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 35px;
+}
+
+.boton_enviar{
+    margin-top: 35px;
+    padding: 15px 30px;
+    background-color: #2d6da3;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton_enviar:hover{
+    background-color: #1e507a;
+}

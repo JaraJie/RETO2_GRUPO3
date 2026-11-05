@@ -37,6 +37,73 @@
         </nav>
     </header>
 
-    <!--SEGUIR A PARTIR DE AQUÍ - BORRAR ESTO-->
+    <!--SECCIÓN DE FORMULARIO PARA CREAR CV-->
+    <section class="seccion_cv">
+
+        <h1>Construye tu CV</h1>
+
+        <p class="info_cv">
+            Completa tus datos personales para comenzar a crear tu perfil profesional en TalentConnect.
+        </p>
+
+        <!-- EMPIEZA FORMULARIO -->
+        <form id="formularioCV">
+
+            <!-- INFORMACIÓN PERSONAL -->
+            <h2>Información personal</h2>
+
+            <!-- PRIMERA FILA: NOMBRES Y APELLIDOS-->
+            <div class="campos_cv">
+
+                <div class="campo_cv">
+                    <label for="nombre">Nombre*</label>
+                    <input type="text" id="nombre" name="nombre"
+                        placeholder="Introduce tu nombre" required>
+                </div>
+
+                <div class="campo_cv">
+                    <label for="apellidos">Apellidos*</label>
+                    <input type="text" id="apellidos" name="apellidos"
+                        placeholder="Introduce tus apellidos" required>
+                </div>
+
+            </div>
+
+            <!-- SEGUNDA FILA: CORREO ELECTRÓNICO, TELÉFONO
+            NO OLVIDAR PONRER * PARA QUE SEPA EL USUARIO QUE ES UN CAMPO OBLIGATORIO-->
+            
+            <!-- TERCERA FILA: CIUDAD
+            NO OLVIDAR PONRER * PARA QUE SEPA EL USUARIO QUE ES UN CAMPO OBLIGATORIO-->
+            
+            <!-------------------------------------------------------------------------------->
+
+            <!-- FORMACIÓN ACADEMICA
+                Nivel de estudios
+                Estudios realizados
+                Centro educativo
+                Año de inicio/fin-->
+
+            <!-- EXPERIENCIA LABORAL
+                Puesto de trabajo
+                Empresa
+                Fecha inicio/fin
+                Descripción del puesto-->
+            
+            <!-- HABILIDADES
+                Softskills (aquí podemos añadir una checkbox y un textarea para otros)
+                Softwares (aquí podemos añadir una checkbox y un textarea para otros)
+                Idiomas (aquí un select option)
+                Nivel de idiomas (radio) -->
+
+            <!-- ÚLTIMA FILA: BOTÓN -->
+            <div class="contenedor_boton">
+                <button type="submit" class="boton_enviar">
+                    ENVIAR
+                </button>
+            </div>
+
+        </form>
+
+    </section>
 </body>
 </html>
