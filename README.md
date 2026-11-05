@@ -161,7 +161,7 @@ Este archivo está vinculado al documento html mediante la etiqueta script, situ
 <script src="javascript/form.js"></script>
 ```
 
-Por el momento, hemos desarrollado la función validarFormulario(event), que se ejecuta cuando el usuario pulsa el botón de envío.
+Por el momento, hemos desarrollado la función `validarFormulario(event)`, que se ejecuta cuando el usuario pulsa el botón de envío.
 
 Esta función realiza las siguientes acciones:
 
