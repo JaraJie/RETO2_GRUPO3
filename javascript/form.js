@@ -40,41 +40,6 @@ function validarFormulario(event) {
     const nivel_idioma_seleccionado = document.querySelector('input[name="nivel_idioma"]:checked');
     const nivel_idioma = nivel_idioma_seleccionado ? nivel_idioma_seleccionado.value : "";
 
-     //VALIDAMOS LA LONGITUD DE LOS CAMPOS NOMBRE, APELLIDOS
-
-    if(nombre.length < 2){
-        alert("Nombre incorrecto");
-        return false;
-    }
-
-    if(apellidos.length < 2){
-        alert("Apellidos incorrectos");
-        return false;
-    }
-
-    //COMPROBAMOS QUE EL DNI TENGA AL MENOS 9 CARACTERES
-    if (DNI.length < 9) {
-        alert("DNI incorrecto. El DNI debe tener al menos 9 caracteres.");
-        return false;
-    }
-
-    // COMPROBAMOS QUE EL TELÉFONO TENGA AL MENOS 9 DÍGITOS
-    if (telefono.length < 9) {
-        alert("Teléfono incorrecto. Debe tener al menos 9 dígitos.");
-        return false;
-    }
-
-    // VALIDAMOS FECHAS DE FORMACIÓN ACADÉMICA Y EXPERIENCIA LABORAL
-    if(fecha_fin_estudios < fecha_inicio_estudios){
-        alert("Fecha de finalización de estudios incorrecta");
-        return false;
-    }
-
-    if(fecha_fin_trabajo < fecha_inicio_trabajo){
-        alert("Fecha de finalización del trabajo incorrecta");
-        return false;
-    }
-
     // COMPROBAMOS QUE EL EMAIL CONTENGA UNA @  - JARA
     if (correo_electronico.includes("@") == false) {
         alert("Email incorrecto. Debe contener una @.");
