@@ -40,10 +40,6 @@ De esta manera, mantenemos el código HTML separado de los estilos CSS, lo que f
 
 El proyecto cuenta con una carpeta `assets` destinada a almacenar las imágenes y otros recursos gráficos utilizados en la página web, como el logo y la imagen de portada.
 
-Inicialmente, las imágenes estaban guardadas en local en formatos como PNG y JPG. Sin embargo, al abrir la página desde otro equipo, algunas imágenes no se mostraban correctamente porque los archivos no estaban disponibles en ese otro dispositivo.
-
-Para solucionar este problema, decidimos subir las imágenes a **Cloudinary**, una plataforma de almacenamiento y gestión de imágenes. De esta manera, podemos utilizarlas mediante enlaces URL directamente en el código HTML, evitando depender de archivos almacenados únicamente en nuestro equipo.
-
 ## Página Principal - `PaginaWeb.html`
 
 La página principal está dividida en diferentes apartados:
@@ -161,22 +157,23 @@ Este archivo está vinculado al documento html mediante la etiqueta script, situ
 <script src="javascript/form.js"></script>
 ```
 
-Por el momento, hemos desarrollado la función `validarFormulario(event)`, que se ejecuta cuando el usuario pulsa el botón de envío.
+Hemos desarrollado la función `validarFormulario(event)`, que se ejecuta cuando el usuario pulsa el botón de envío. Dentro de esta función se han añadido diferentes comprobaciones para validar los datos introducidos por el usuario y evitar que se envíe el formulario si alguno de ellos es incorrecto.
 
-Esta función realiza las siguientes acciones:
+Las validaciones realizadas son las siguientes:
 
-- Evita que la página se recargue utilizando event.preventDefault().
+- Correo electrónico: se comprueba que la dirección de correo electrónico contenga una arroba (@) y un punto (.).
 
-- Recoge los datos introducidos en los campos mediante document.getElementById() y la propiedad .value.
+- Nombre y apellidos: se comprueba que ambos campos tengan una longitud mínima de 2 caracteres.
 
-- Elimina los espacios innecesarios al principio y al final del texto utilizando .trim().
+- DNI: se verifica que el DNI tenga al menos 9 caracteres.
 
-- Muestra los datos en la consola del navegador mediante console.log().
+- Teléfono: se comprueba que el número de teléfono tenga al menos 9 dígitos.
 
-- Muestra un mensaje de confirmación mediante alert(), indicando al usuario que sus datos se han validado correctamente.
+-Fechas: se verifica que la fecha de inicio sea anterior a la fecha de finalización.
 
-La función está todavía en desarrollo. Por lo tanto, el formulario aún no guarda ni envía la información a una base de datos.
+Si alguno de estos datos no cumple las condiciones establecidas, se muestra una alerta indicando el error y se devuelve false, impidiendo que el formulario se envíe.
 
+De esta manera, conseguimos que los datos introducidos por el usuario cumplan unos requisitos mínimos antes de procesar el envío del formulario.
 
 ## `empresas.html` y `empleos.html`
 Ambas páginas están destinadas a mostrar las ofertas de trabajo disponibles y la información sobre las empresas colaboradoras de TalentConnect.
