@@ -491,7 +491,7 @@ LO BUSQUÉ EN INTERENT*/
 }
 
 /*CSS PARA SECCIÓN HABILIDADES */
-
+/*CONTENEDOR PRINCIPAL DE LAS LISTAS DE CHECKBOXES Y RADIOS*/
 .opciones_multiples {
     padding: 10px 0;
     font-size: 15px;
@@ -503,6 +503,7 @@ LO BUSQUÉ EN INTERENT*/
     padding-top: 15px; 
 }
 
+/*ESTILO DE TEXTO*/
 .opciones_multiples label {
     color: #555;
     display: inline-flex;
