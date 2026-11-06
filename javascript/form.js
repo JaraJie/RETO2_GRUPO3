@@ -65,6 +65,17 @@ function validarFormulario(event) {
         return false;
     }
 
+     // VALIDAMOS FECHAS DE FORMACIÓN ACADÉMICA Y EXPERIENCIA LABORAL - ASIER
+    if(fecha_fin_estudios < fecha_inicio_estudios){
+        alert("Fecha de finalización de estudios incorrecta");
+        return false;
+    }
+
+
+    if(fecha_fin_trabajo < fecha_inicio_trabajo){
+        alert("Fecha de finalización del trabajo incorrecta");
+        return false;
+    }
 
     // COMPROBAMOS QUE EL EMAIL CONTENGA UNA @  - JARA
     if (correo_electronico.includes("@") == false) {
