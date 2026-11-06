@@ -31,6 +31,14 @@ function validarFormulario(event) {
     const fecha_fin_trabajo = document.getElementById("fecha_fin_trabajo").value;
     const descripcion = document.getElementById("descripcion").value;
 
+    // RECOGEMOS LOS DATOS DE HABILIDADES
+    const softskills = document.querySelectorAll('input[name="softskills"]:checked');
+    const otras_softskills = document.getElementsByName("otras_softskills")[0].value;
+    const softwares = document.querySelectorAll('input[name="softwares"]:checked');
+    const otros_softwares = document.getElementsByName("otros_softwares")[0].value;
+    const idioma = document.getElementById("idioma").value;
+    const nivel_idioma = document.querySelector('input[name="nivel_idioma"]:checked').value;
+
     //MOSTRAMOS LOS DATOS EN LA CONSOLA
     console.log("----- INFORMACIÓN PERSONAL -----");
     console.log("Nombre:", nombre);
@@ -53,6 +61,14 @@ function validarFormulario(event) {
     console.log("Fecha de inicio:", fecha_inicio_trabajo);
     console.log("Fecha de finalización:", fecha_fin_trabajo);
     console.log("Descripción del puesto:", descripcion);
+
+    console.log("----- HABILIDADES -----");
+    console.log("Softskills seleccionadas:", softskills);
+    console.log("Otras softskills:", otras_softskills);
+    console.log("Softwares seleccionados:", softwares);
+    console.log("Otros softwares:", otros_softwares);
+    console.log("Idioma seleccionado:", idioma);
+    console.log("Nivel de idioma:", nivel_idioma);
 
     //ALERTAMOS CON UN MENSAJE DE CONFIRMACIÓN
     alert("¡Perfecto! Tus datos se han validado correctamente.");
