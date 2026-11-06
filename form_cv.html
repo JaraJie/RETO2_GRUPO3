@@ -60,14 +60,12 @@
 
                 <div class="campo_cv">
                     <label for="nombre">Nombre*</label>
-                    <input type="text" id="nombre" name="nombre"
-                        placeholder="Introduce tu nombre" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre" required>
                 </div>
 
                 <div class="campo_cv">
                     <label for="apellidos">Apellidos*</label>
-                    <input type="text" id="apellidos" name="apellidos"
-                        placeholder="Introduce tus apellidos" required>
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Introduce tus apellidos" required>
                 </div>
 
             </div>
@@ -80,17 +78,88 @@
             
             <!-------------------------------------------------------------------------------->
 
-            <!-- FORMACIÓN ACADEMICA
-                Nivel de estudios
-                Estudios realizados
-                Centro educativo
-                Año de inicio/fin-->
+            <!-- FORMACIÓN ACADEMICA - MIKEL-->
+            <h2>Formación académica</h2>
 
-            <!-- EXPERIENCIA LABORAL
-                Puesto de trabajo
-                Empresa
-                Fecha inicio/fin
-                Descripción del puesto-->
+            <div class="campos_cv">
+
+                <div class="campo_cv">
+                    <label for="nivel_estudios">Nivel de estudios*</label>
+                    <select id="nivel_estudios" name="nivel_estudios" required>
+                        <option value="">Selecciona tu nivel</option>
+                        <option value="ESO">ESO</option>
+                        <option value="Bachillerato">Bachillerato</option>
+                        <option value="Grado Medio">Grado Medio</option>
+                        <option value="Grado Superior">Grado Superior</option>
+                        <option value="Universidad">Universidad</option>
+                    </select>
+                </div>
+
+                <div class="campo_cv">
+                    <label for="estudios">Estudios realizados*</label>
+                    <input type="text" id="estudios" name="estudios" placeholder="Ej: DAM" required>
+                </div>
+
+                <div class="campo_cv">
+                    <label for="centro">Centro educativo*</label>
+                    <input type="text" id="centro" name="centro" placeholder="Nombre del centro educativo" required>
+                </div>
+
+            </div>
+
+            <div class="campos_cv">
+
+                <div class="campo_cv">
+                    <label for="fecha_inicio_estudios">Año de inicio*</label>
+                    <input type="date" id="fecha_inicio_estudios" name="fecha_inicio_estudios" required>
+                </div>
+
+                <div class="campo_cv">
+                    <label for="fecha_fin_estudios">Año de finalización</label>
+                    <input type="date" id="fecha_fin_estudios" name="fecha_fin_estudios">
+                </div>
+
+            </div>
+
+            <!-- EXPERIENCIA LABORAL -->
+            <h2>Experiencia laboral</h2>
+
+            <div class="campos_cv">
+
+                <div class="campo_cv">
+                    <label for="puesto">Puesto de trabajo</label>
+                    <input type="text" id="puesto" name="puesto" placeholder="Ej: Programador Junior">
+                </div>
+
+                <div class="campo_cv">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa">
+                </div>
+
+            </div>
+
+            <div class="campos_cv">
+
+                <div class="campo_cv">
+                    <label for="fecha_inicio_trabajo">Fecha de inicio</label>
+                    <input type="date" id="fecha_inicio_trabajo" name="fecha_inicio_trabajo">
+                </div>
+
+                <div class="campo_cv">
+                    <label for="fecha_fin_trabajo">Fecha de finalización</label>
+                    <input type="date" id="fecha_fin_trabajo" name="fecha_fin_trabajo">
+                </div>
+
+            </div>
+
+            <div class="campos_cv">
+
+                <div class="campo_cv">
+                    <label for="descripcion">Descripción del puesto</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Describe las tareas que realizabas"></textarea>
+                </div>
+
+            </div>
             
             <!-- HABILIDADES
                 Softskills (aquí podemos añadir una checkbox y un textarea para otros)
