@@ -11,6 +11,11 @@ function validarFormulario(event) {
     //RECOGEMOS LOS DATOS DEL USUARIO
     const nombre = document.getElementById("nombre").value;
     const apellidos = document.getElementById("apellidos").value;
+    const DNI = document.getElementById("DNI").value;
+    const correo_electronico = document.getElementById("correo_electronico").value;
+    const telefono = document.getElementById("telefono").value;
+    const direccion = document.getElementById("direccion").value;
+
 
     // RECOGEMOS LOS DATOS DE FORMACIÓN ACADÉMICA
     const nivel_estudios = document.getElementById("nivel_estudios").value;
@@ -30,6 +35,10 @@ function validarFormulario(event) {
     console.log("----- INFORMACIÓN PERSONAL -----");
     console.log("Nombre:", nombre);
     console.log("Apellidos:", apellidos);
+    console.log("DNI:", DNI);
+    console.log("Correo electrónico:", correo_electronico);
+    console.log("Teléfono:", telefono);
+    console.log("Dirección:", direccion);
 
     console.log("----- FORMACIÓN ACADÉMICA -----");
     console.log("Nivel de estudios:", nivel_estudios);
