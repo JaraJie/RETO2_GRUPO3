@@ -1,3 +1,4 @@
+#IMPORTACIÓN DE OS Y JSON
 import os
 import json
 
@@ -45,10 +46,13 @@ def fn_exportar_informes():
 #MENÚ PRINCIPAL TALENTCONNECT
 def fn_menu():
 
+    #Bucle infinito acceder al menú hasta que se pulse la opción de salir
     while True:
-        
+
+        #Borrar datos de la consola
         os.system('cls')
 
+        #Muestra las opciónes disponibles
         print("""
         -------------------------------
                 TALENTCONNECT
@@ -67,6 +71,7 @@ def fn_menu():
 
         opcion_seleccionada_str = input("Seleccione una opción: ")
 
+        #Dependiendo de lo que se elija ejecutara las funciones correspondientes
         if opcion_seleccionada_str == "1":
             fn_registrar_candidato()
 
@@ -91,6 +96,7 @@ def fn_menu():
         elif opcion_seleccionada_str == "8":
             fn_exportar_informes()
 
+        #Sale del bucle y del programa
         elif opcion_seleccionada_str == "0":
             print("Saliendo del programa...")
             break
@@ -100,4 +106,5 @@ def fn_menu():
 
         input("\nPulsa ENTER para volver al menú principal...")
 
+#Ejecuta el programa
 fn_menu()
