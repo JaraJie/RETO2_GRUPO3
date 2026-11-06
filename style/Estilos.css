@@ -471,6 +471,7 @@ LO BUSQUÉ EN INTERENT*/
 /*CSS PARA CAMPOS PARA EXPERIENCIA Y FORMACIÓN*/
 /*AUTOR: MIKEL*/
 
+/*AQUI MODIFICO EL ESTILO DE SELECT*/
 .campo_cv select{
     padding: 14px;
     border: none;
@@ -479,6 +480,7 @@ LO BUSQUÉ EN INTERENT*/
     font-size: 15px;
 }
 
+/*MODIFICAR TEXTAREA*/
 .campo_cv textarea{
     padding: 14px;
     border: none;
