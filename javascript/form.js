@@ -52,6 +52,19 @@ function validarFormulario(event) {
         return false;
     }
 
+    //COMPROBAMOS QUE EL DNI TENGA AL MENOS 9 CARACTERES - XABIER
+    if (DNI.length < 9) {
+        alert("DNI incorrecto. El DNI debe tener al menos 9 caracteres.");
+        return false;
+    }
+
+
+    // COMPROBAMOS QUE EL TELÉFONO TENGA AL MENOS 9 DÍGITOS - XABIER
+    if (telefono.length < 9) {
+        alert("Teléfono incorrecto. Debe tener al menos 9 dígitos.");
+        return false;
+    }
+
 
     // COMPROBAMOS QUE EL EMAIL CONTENGA UNA @  - JARA
     if (correo_electronico.includes("@") == false) {
