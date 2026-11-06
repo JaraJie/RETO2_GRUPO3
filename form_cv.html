@@ -55,7 +55,7 @@
             <!-- INFORMACIÓN PERSONAL -->
             <h2>Información personal</h2>
 
-            <div class="campos_cv" onsubmit="validarFormulario(event)">
+            <div class="campos_cv">
 
                 <!-- PRIMERA FILA: NOMBRES Y APELLIDOS-->
                 <div class="campo_cv">
@@ -185,11 +185,62 @@
 
             </div>
             
-            <!-- HABILIDADES
-                Softskills (aquí podemos añadir una checkbox y un textarea para otros)
-                Softwares (aquí podemos añadir una checkbox y un textarea para otros)
-                Idiomas (aquí un select option)
-                Nivel de idiomas (radio) -->
+            <!---HABILIDADES-->
+            <h2>Habilidades</h2>
+
+            <div class="campos_cv">
+            
+                <div class="campo_cv">
+                    <label>Softskills</label>
+                    <div class="opciones_multiples">
+                        <label><input type="checkbox" name="softskills" value="trabajo_equipo"> Trabajo en equipo</label><br>
+                        <label><input type="checkbox" name="softskills" value="comunicacion"> Comunicación</label><br>
+                        <label><input type="checkbox" name="softskills" value="liderazgo"> Liderazgo</label><br>
+                        <label><input type="checkbox" name="softskills" value="resolucion_problemas"> Resolución de problemas</label><br>
+                        <label><input type="checkbox" name="softskills" value="adaptabilidad"> Adaptabilidad</label>
+                        <textarea name="otras_softskills" class="textarea_otros" placeholder="Otras softskills..."></textarea>
+                    </div>
+                </div>
+
+                <div class="campo_cv">
+                    <label>Softwares</label>
+                    <div class="opciones_multiples">
+                        <label><input type="checkbox" name="softwares" value="vsCode"> VS Code</label><br>
+                        <label><input type="checkbox" name="softwares" value="git_gitHub"> Git / GitHub</label><br>
+                        <label><input type="checkbox" name="softwares" value="notepad">Notepad++</label><br>
+                        <label><input type="checkbox" name="softwares" value="SQL">SQL</label>
+                    
+                        <textarea name="otros_softwares" class="textarea_otros" placeholder="Otros programas..."></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="campos_cv">
+
+                <div class="campo_cv">
+                    <label for="idioma">Idioma</label>
+                    <select id="idioma" name="idioma">
+                        <option value="">Selecciona un idioma</option>
+                        <option value="ingles">Inglés</option>
+                        <option value="frances">Francés</option>
+                        <option value="aleman">Alemán</option>
+                        <option value="euskera">Euskera</option>
+                        <option value="español">Español</option>
+                    </select>
+                </div>
+
+                <div class="campo_cv">
+                    <label>Nivel de idioma</label>
+                    <div class="opciones_multiples espaciado_radios">
+                        <label><input type="radio" name="nivel_idioma" value="basico" > Básico (A1-A2)</label><br>
+                        <label><input type="radio" name="nivel_idioma" value="intermedio"> Intermedio (B1-B2)</label><br>
+                        <label><input type="radio" name="nivel_idioma" value="avanzado"> Avanzado (C1-C2)</label><br>
+                        <label><input type="radio" name="nivel_idioma" value="nativo"> Bilingüe / Nativo</label>
+                    </div>
+                </div>
+
+            </div>
 
             <!-- ÚLTIMA FILA: BOTÓN -->
             <div class="contenedor_boton">
