@@ -37,7 +37,20 @@ function validarFormulario(event) {
     const softwares = document.querySelectorAll('input[name="softwares"]:checked');
     const otros_softwares = document.getElementsByName("otros_softwares")[0].value;
     const idioma = document.getElementById("idioma").value;
-    const nivel_idioma = document.querySelector('input[name="nivel_idioma"]:checked').value;
+    const nivel_idioma_seleccionado = document.querySelector('input[name="nivel_idioma"]:checked');
+    const nivel_idioma = nivel_idioma_seleccionado ? nivel_idioma_seleccionado.value : "";
+
+    // COMPROBAMOS QUE EL EMAIL CONTENGA UNA @  - JARA
+    if (correo_electronico.includes("@") == false) {
+        alert("Email incorrecto. Debe contener una @.");
+        return false;
+    }
+
+    // COMPROBAMOS QUE EL EMAIL CONTENGA UN PUNTO - JARA
+    if (correo_electronico.includes(".") == false) {
+        alert("Email incorrecto. Debe contener un punto.");
+        return false;
+    }
 
     //MOSTRAMOS LOS DATOS EN LA CONSOLA
     console.log("----- INFORMACIÓN PERSONAL -----");
@@ -72,10 +85,8 @@ function validarFormulario(event) {
 
     //ALERTAMOS CON UN MENSAJE DE CONFIRMACIÓN
     alert("¡Perfecto! Tus datos se han validado correctamente.");
-
+    return true;
 }
 
-//FUNCIONES  PARA COMPROBAR SI EL CORREO ES CORRECTO
 //FUNCIONES PARA QUE LA FECHA DE INICIO SEA ANTERIOR A LA FECHA FINAL
-//CREAR FUNCIONES PARA QUE LOS CAMPOS NO ESTEN VACIOS Y QUE ALERTE
 //OTRAS FUNCIONES COMO LAS HEMOS HECHO EN CLASE DE QUE EL NOMBRE TENGA 3 CARÁCTERES POR LO MENOS
