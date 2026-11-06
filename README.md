@@ -24,16 +24,6 @@ Para dar formato y diseñar las diferentes páginas de TalentConnect, hemos util
 <link rel="stylesheet" href="style/Estilos.css">
 ```
 
-Desde este archivo se controlan aspectos visuales como:
-
-- Los colores y fondos de la página.
-- Los tamaños y estilos de los textos.
-- La distribución de los elementos mediante Flexbox.
-- El diseño del menú de navegación.
-- La apariencia de las tarjetas y sus efectos al pasar el ratón por encima.
-- Los márgenes, espacios y tamaños de las diferentes secciones.
-- etc...
-
 De esta manera, mantenemos el código HTML separado de los estilos CSS, lo que facilita la organización y modificación del diseño de la página web.
 
 ## Imágenes y recursos - `assets`
@@ -161,15 +151,15 @@ Hemos desarrollado la función `validarFormulario(event)`, que se ejecuta cuando
 
 Las validaciones realizadas son las siguientes:
 
-- Correo electrónico: se comprueba que la dirección de correo electrónico contenga una arroba (@) y un punto (.).
+- **Correo electrónico**: se comprueba que la dirección de correo electrónico contenga una arroba (@) y un punto (.).
 
-- Nombre y apellidos: se comprueba que ambos campos tengan una longitud mínima de 2 caracteres.
+- **Nombre y apellidos**: se comprueba que ambos campos tengan una longitud mínima de 2 caracteres.
 
-- DNI: se verifica que el DNI tenga al menos 9 caracteres.
+- **DNI**: se verifica que el DNI tenga al menos 9 caracteres.
 
-- Teléfono: se comprueba que el número de teléfono tenga al menos 9 dígitos.
+- **Teléfono**: se comprueba que el número de teléfono tenga al menos 9 dígitos.
 
--Fechas: se verifica que la fecha de inicio sea anterior a la fecha de finalización.
+- **Fechas**: se verifica que la fecha de inicio sea anterior a la fecha de finalización.
 
 Si alguno de estos datos no cumple las condiciones establecidas, se muestra una alerta indicando el error y se devuelve false, impidiendo que el formulario se envíe.
 
