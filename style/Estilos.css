@@ -489,3 +489,38 @@ LO BUSQUÉ EN INTERENT*/
     font-size: 15px;
     min-height: 120px;
 }
+
+/*CSS PARA SECCIÓN HABILIDADES */
+
+.opciones_multiples {
+    padding: 10px 0;
+    font-size: 15px;
+    line-height: 2;
+    color: #555;
+}
+
+.espaciado_radios {
+    padding-top: 15px; 
+}
+
+.opciones_multiples label {
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+}
+
+.campo_cv .opciones_multiples input[type="checkbox"],
+.campo_cv .opciones_multiples input[type="radio"] {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.textarea_otros {
+    min-height: 60px;
+    margin-top: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+}
