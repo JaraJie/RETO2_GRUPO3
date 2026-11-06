@@ -398,7 +398,7 @@ LO BUSQUÉ EN INTERENT*/
 .campo_cv{
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1 1 45%;
     gap: 8px;
 }
 
