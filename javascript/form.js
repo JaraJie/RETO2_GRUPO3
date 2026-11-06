@@ -40,6 +40,19 @@ function validarFormulario(event) {
     const nivel_idioma_seleccionado = document.querySelector('input[name="nivel_idioma"]:checked');
     const nivel_idioma = nivel_idioma_seleccionado ? nivel_idioma_seleccionado.value : "";
 
+    //COMPROBAMOS LA LONGITUD DE LOS CAMPOS NOMBRE, APELLIDOS - MIKEL
+    if(nombre.length < 2){
+        alert("Nombre incorrecto");
+        return false;
+    }
+
+
+    if(apellidos.length < 2){
+        alert("Apellidos incorrectos");
+        return false;
+    }
+
+
     // COMPROBAMOS QUE EL EMAIL CONTENGA UNA @  - JARA
     if (correo_electronico.includes("@") == false) {
         alert("Email incorrecto. Debe contener una @.");
@@ -87,6 +100,3 @@ function validarFormulario(event) {
     alert("¡Perfecto! Tus datos se han validado correctamente.");
     return true;
 }
-
-//FUNCIONES PARA QUE LA FECHA DE INICIO SEA ANTERIOR A LA FECHA FINAL
-//OTRAS FUNCIONES COMO LAS HEMOS HECHO EN CLASE DE QUE EL NOMBRE TENGA 3 CARÁCTERES POR LO MENOS
