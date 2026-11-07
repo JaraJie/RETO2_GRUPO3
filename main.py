@@ -104,7 +104,7 @@ def fn_limpiar_ciudad(ciudad_validar_str):
         print("Tienes que rellenar este campo.")
         return False
 
-    #Comprobar que los apellidos solo contienen letras, permitiendo espacios y guiones
+    #Comprobar que la ciudad contienen letras, permitiendo espacios y guiones
     if not ciudad_validar_str.replace(" ","").replace("-","").isalpha():
         print("La ciudad solo puede contener letras.")
         return False
@@ -196,7 +196,7 @@ def fn_validar_estudios():
         #Solicitar opción al candidato
         estudios_validar_str = input("Selecciona tu nivel de estudios (1-8): ")
 
-        #Dependiendo de lo que se escoga guardara diferentes niveles
+        #Dependiendo de lo que se escoja guardara diferentes niveles
         if estudios_validar_str == "1":
             estudios_validar_str = "Sin estudios"
 
@@ -221,7 +221,7 @@ def fn_validar_estudios():
         elif estudios_validar_str == "8":
             estudios_validar_str = "Doctorado"
 
-        #En caso de que no escoga una opción valida continuará dentro del bucle
+        #En caso de que no escoja una opción valida continuará dentro del bucle
         else:
             print("Opción no válida. Introduce un número del 1 al 8.")
             continue
@@ -231,8 +231,10 @@ def fn_validar_estudios():
 #Función para validar titulación
 def fn_validar_titulacion(titulacion_validar_str):
 
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     titulacion_validar_str = titulacion_validar_str.strip().title()
 
+    #Comprobar que no deja el espacio en blanco
     if titulacion_validar_str == "":
             print("Tienes que rellenar este campo.")
             return False
@@ -242,16 +244,20 @@ def fn_validar_titulacion(titulacion_validar_str):
 #Función para validar experiencia
 def fn_validar_experiencia(experiencia_validar_str):
 
+    #Elimina espacios (inicio/final)
     experiencia_validar_str = experiencia_validar_str.strip()
 
+    #Comprobar que no deja el espacio en blanco
     if experiencia_validar_str == "":
         print("La experiencia no puede estar vacía.")
         return False
 
+    #Comprobar que introduce un número entero y positivo
     if not experiencia_validar_str.isdigit():
         print("La experiencia debe ser un número entero igual o superior a 0.")
         return False
 
+    #Convertir la experiencia de texto a número
     experiencia_validar_int = int(experiencia_validar_str)
 
     return experiencia_validar_int
@@ -341,16 +347,22 @@ def fn_registrar_candidato():
 
     #SOLICITAR TITULACIÓN DEL CANDIDATO
     titulacion_candidato_str = input("Introduce tu titulación: ")
+
+    #Llama a la función titulación y guarda el resultado en la variable
     titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
 
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while titulacion_candidato_str == False:
         titulacion_candidato_str = input("Introduce tu titulación: ")
         titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
 
     #SOLICITAR EXPERIENCIA DEL CANDIDATO
     experiencia_candidato_int = input("Introduce los años de experiencia: ")
+
+    #Llama a la función experiencia y guarda el resultado en la variable
     experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
 
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while experiencia_candidato_int == False:
         experiencia_candidato_int = input("Introduce los años de experiencia: ")
         experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
