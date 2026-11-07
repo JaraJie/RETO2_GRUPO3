@@ -149,6 +149,25 @@ def fn_validar_email(email_validar_str):
 
     return email_validar_str
 
+#Función para validar teléfono
+def fn_validar_telefono(telefono_validar_str):
+
+    telefono_validar_str = telefono_validar_str.strip()
+
+    if telefono_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    if len(telefono_validar_str) != 9:
+        print("El teléfono debe contener 9 dígitos.")
+        return False
+
+    if not telefono_validar_str.isdigit():
+        print("El teléfono solo puede contener números.")
+        return False
+
+    return telefono_validar_str
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
@@ -217,6 +236,15 @@ def fn_registrar_candidato():
         email_candidato_str = input("Introduce el email: ")
         email_candidato_str = fn_validar_email(email_candidato_str)
 
+    #SOLICITAR TELÉFONO DEL CANDIDATO
+    telefono_candidato_str = input("Introduce el teléfono: ")
+
+    telefono_candidato_str = fn_validar_telefono(telefono_candidato_str)
+
+    while telefono_candidato_str == False:
+        telefono_candidato_str = input("Introduce el teléfono: ")
+        telefono_candidato_str = fn_validar_telefono(telefono_candidato_str)
+
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
@@ -224,7 +252,8 @@ def fn_registrar_candidato():
         "apellidos": apellidos_candidato_str,
         "edad": edad_candidato_int,
         "ciudad": ciudad_candidato_str,
-        "email": email_candidato_str
+        "email": email_candidato_str,
+        "telefono": telefono_candidato_str
     }
 
     print(candidato_dict)        
