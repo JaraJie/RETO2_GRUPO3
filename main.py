@@ -114,28 +114,35 @@ def fn_limpiar_ciudad(ciudad_validar_str):
 #Función para limpiar y validar email
 def fn_validar_email(email_validar_str):
 
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas
     email_validar_str = email_validar_str.strip().lower()
 
+    #Comprobar que no deja el espacio en blanco
     if email_validar_str == "":
         print("Tienes que rellenar este campo.")
         return False
 
+    #Comprobar que contiene solo 1 @
     if email_validar_str.count("@") != 1:
         print("El email debe contener una única @.")
         return False
 
+    #Comprobar que no tiene espacios (dentro del email)
     if " " in email_validar_str:
         print("El email no puede contener espacios.")
         return False
 
+    #Comprobar que el email termina con .es o .com
     if not email_validar_str.endswith(".es") and not email_validar_str.endswith(".com"):
         print("El email debe terminar con '.es' o '.com'")
         return False
 
+    #Comprobar que el email no empieza con @
     if email_validar_str.startswith("@"):
         print("El email debe contener un usuario antes de la @.")
         return False
 
+    #Comprobar que el emial no termina con @.es ni @.com
     if email_validar_str.endswith("@.es") or email_validar_str.endswith("@.com"):
         print("El email debe contener un dominio.")
         return False
@@ -202,8 +209,10 @@ def fn_registrar_candidato():
     #SOLICITAR EMAILL DEL CANDIDATO
     email_candidato_str = input("Introduce el email: ")
 
+    #Llama a la función email y guarda el resultado en la variable
     email_candidato_str = fn_validar_email(email_candidato_str)
 
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while email_candidato_str == False:
         email_candidato_str = input("Introduce el email: ")
         email_candidato_str = fn_validar_email(email_candidato_str)
