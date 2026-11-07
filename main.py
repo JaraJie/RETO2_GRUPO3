@@ -46,7 +46,7 @@ def fn_limpiar_nombre(nombre_validar_str):
         print("El nombre solo puede contener letras.")
         return False
 
-    return True
+    return nombre_validar_str
 
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
@@ -59,12 +59,22 @@ def fn_registrar_candidato():
 
         dni_candidato_str = input("Introduce el DNI: ")
 
+    #Solicitar nombre
     nombre_candidato_str = input("Introduce el nombre: ")
 
-    #Mientras que el nombre no sea correcto, repetir funcion
-    while not fn_limpiar_nombre(nombre_candidato_str):
-        nombre_candidato_str = input("Introduce el nombre: ")
+    nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
 
+    while nombre_candidato_str == False:
+        nombre_candidato_str = input("Introduce el nombre: ")
+        nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
+
+    #Añadir datos a un diccionario
+    candidato_dict = {
+        "dni": dni_candidato_str,
+        "nombre": nombre_candidato_str
+    }
+
+    print(candidato_dict)        
     print("Candidato registrado correctamente.")
 
 #OPCIÓN 2. MODIFICAR CANDIDATO
