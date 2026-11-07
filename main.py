@@ -62,8 +62,10 @@ def fn_registrar_candidato():
     #Solicitar nombre
     nombre_candidato_str = input("Introduce el nombre: ")
 
+    #Llama a la función y guarda el resultado en la variable
     nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
 
+    #Bucle infinito en caso de que la variable te devuelva que es incorrecta
     while nombre_candidato_str == False:
         nombre_candidato_str = input("Introduce el nombre: ")
         nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
