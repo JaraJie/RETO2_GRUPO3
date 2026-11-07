@@ -487,7 +487,7 @@ def fn_registrar_candidato():
     titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
-    while titulacion_candidato_str is False:
+    while titulacion_candidato_str == False:
         titulacion_candidato_str = input("\nIntroduce tu titulación: ")
         titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
 
@@ -498,7 +498,7 @@ def fn_registrar_candidato():
     experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
-    while experiencia_candidato_int == False:
+    while experiencia_candidato_int is False:
         experiencia_candidato_int = input("\nIntroduce los años de experiencia: ")
         experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
 
