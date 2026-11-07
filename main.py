@@ -2,6 +2,30 @@
 import os
 import json
 
+#LISTA DE CANDIDATOS
+candidatos_lst = []
+
+#FUNCIÓN PARA GUARDAR CANDIDATOS EN JSON
+def fn_guardar_candidatos():
+
+    with open("candidatos.json", "w") as x:
+        json.dump(candidatos_lst, x, indent=4)
+
+    print("Los candidatos se han guardado correctamente.")
+
+#FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON
+def fn_cargar_candidatos():
+
+    with open("candidatos.json", "r") as x:
+
+        contenido_str = x.read()
+
+        if contenido_str == "":
+            candidatos_lst = []
+        else:
+            candidatos_lst = json.loads(contenido_str)
+
+
 #Función para validar DNI
 def fn_validar_dni(dni_validar_str):
 
@@ -216,7 +240,7 @@ def fn_validar_estudios():
             estudios_validar_str = "Grado universitario"
 
         elif estudios_validar_str == "7":
-            estudios_validar_str = "Máster"
+            estudios_validar_str = "Master"
 
         elif estudios_validar_str == "8":
             estudios_validar_str = "Doctorado"
@@ -494,10 +518,14 @@ def fn_registrar_candidato():
         "puesto_solicitado": puesto_candidato_str,
         "competencias_tecnicas": competencias_candidato_lst,
         "idiomas": idiomas_candidato_lst,
+        "estado": "En revision" #El estado inicial de la candidatura al crear un nuevo perfil siempre será "en revisión"
     }
 
-    print(candidato_dict)        
-    print("Candidato registrado correctamente.")
+    #Añadir diccionario del candidato a una lista
+    candidatos_lst.append(candidato_dict)
+
+    #Llamar a la función para que guarde el candidato registrado
+    fn_guardar_candidatos()
 
 #OPCIÓN 2. MODIFICAR CANDIDATO
 def fn_modificar_candidato():
@@ -589,6 +617,9 @@ def fn_menu():
 
         #Sale del bucle y del programa
         elif opcion_seleccionada_str == "0":
+
+            fn_guardar_candidatos()
+
             print("Saliendo del programa...")
             break
 
@@ -596,6 +627,9 @@ def fn_menu():
             print("Opción no válida. Inténtalo de nuevo.")
 
         input("\nPulsa ENTER para volver al menú principal...")
+
+#Ejecuta la función con los cantitados guardados
+fn_cargar_candidatos()
 
 #Ejecuta el programa
 fn_menu()
