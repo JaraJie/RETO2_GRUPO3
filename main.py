@@ -8,7 +8,7 @@ def fn_validar_dni(dni_validar_str):
     #Eliminar espacios del DNI y convertir la letra en mayúscula
     dni_validar_str = dni_validar_str.strip().upper()
 
-    #Comprobar que no deja el espacio en blanco#
+    #Comprobar que no deja el espacio en blanco
     if dni_validar_str == "":
         print("Tienes que rellenar este campo.")
         return False
@@ -33,12 +33,15 @@ def fn_validar_dni(dni_validar_str):
 #Funcion limpiar y validar nombre
 def fn_limpiar_nombre(nombre_validar_str):
 
+    #Elimina espacios del nombre y convierte todo en minúsculas menos la primera letra
     nombre_validar_str = nombre_validar_str.strip().capitalize()
 
+    #Comprobar que no deja el espacio en blanco
     if nombre_validar_str == "":
         print("Tienes que rellenar este campo.")
         return False
 
+    #Comrpobar que el nombre solo contiene letras
     if not nombre_validar_str.isalpha():
         print("El nombre solo puede contener letras.")
         return False
@@ -58,9 +61,16 @@ def fn_registrar_candidato():
 
     nombre_candidato_str = input("Introduce el nombre: ")
 
+    #Mientras que el nombre no sea correcto, repetir funcion
     while not fn_limpiar_nombre(nombre_candidato_str):
         nombre_candidato_str = input("Introduce el nombre: ")
 
+    candidato_dict = {
+        "dni": dni_candidato_str,
+        "nombre": nombre_candidato_str
+    }
+
+    print(candidato_dict)
     print("Candidato registrado correctamente.")
 
 #OPCIÓN 2. MODIFICAR CANDIDATO
