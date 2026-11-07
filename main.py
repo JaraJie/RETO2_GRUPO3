@@ -174,6 +174,8 @@ def fn_validar_telefono(telefono_validar_str):
 
 #Función para seleccionar nivel de estudios
 def fn_validar_estudios():
+
+    #Muestra las opciones disponibles
     print("""
               NIVEL DE ESTUDIOS
         --------------------------------
@@ -188,10 +190,13 @@ def fn_validar_estudios():
         --------------------------------
         """)
 
+    #En caso de que el usuario no intruduzca una opción valida continuará dentro del bucle
     while True:
 
+        #Solicitar opción al candidato
         estudios_validar_str = input("Selecciona tu nivel de estudios (1-8): ")
 
+        #Dependiendo de lo que se escoga guardara diferentes niveles
         if estudios_validar_str == "1":
             estudios_validar_str = "Sin estudios"
 
@@ -216,6 +221,7 @@ def fn_validar_estudios():
         elif estudios_validar_str == "8":
             estudios_validar_str = "Doctorado"
 
+        #En caso de que no escoga una opción valida continuará dentro del bucle
         else:
             print("Opción no válida. Introduce un número del 1 al 8.")
             continue
