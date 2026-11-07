@@ -30,7 +30,7 @@ def fn_validar_dni(dni_validar_str):
 
     return True
 
-#Funcion limpiar y validar nombre
+#Función limpiar y validar nombre
 def fn_limpiar_nombre(nombre_validar_str):
 
     #Elimina espacios del nombre y convierte todo en minúsculas menos la primera letra de cada palabra
@@ -48,10 +48,26 @@ def fn_limpiar_nombre(nombre_validar_str):
 
     return nombre_validar_str
 
+
+#Función limpiar y validar apellidos
+def fn_limpiar_apellidos(apellidos_validar_str):
+
+    apellidos_validar_str = apellidos_validar_str.strip().title()
+
+    if apellidos_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    if not apellidos_validar_str.replace(" ","").isalpha():
+        print("Los apellidos solo puede contener letras.")
+        return False
+
+    return apellidos_validar_str
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
-    #Solicitar el DNI
+    #SOLICITAR DNI DEL CANDIDATO
     dni_candidato_str = input("Introduce el DNI: ")
 
     #Mientras que el DNI no sea valido, repetir la funcion de validación del DNI
@@ -59,7 +75,7 @@ def fn_registrar_candidato():
 
         dni_candidato_str = input("Introduce el DNI: ")
 
-    #Solicitar nombre
+    #SOLICITAR NOMBRE DEL CANDIDATO
     nombre_candidato_str = input("Introduce el nombre: ")
 
     #Llama a la función y guarda el resultado en la variable
@@ -70,10 +86,20 @@ def fn_registrar_candidato():
         nombre_candidato_str = input("Introduce el nombre: ")
         nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
 
-    #Añadir datos a un diccionario
+    #SOLICITAR APELLIDOS DEL CANDIDATO
+    apellidos_candidato_str = input("Introduce los apelidos: ")
+
+    apellidos_candidato_str = fn_limpiar_apellidos(apellidos_candidato_str)
+
+    while apellidos_candidato_str == False:
+        apellidos_candidato_str = input("Introduce los apelidos: ")
+        apellidos_candidato_str = fn_limpiar_apellidos(apellidos_candidato_str)
+
+    #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
-        "nombre": nombre_candidato_str
+        "nombre": nombre_candidato_str,
+        "apellidos": apellidos_candidato_str
     }
 
     print(candidato_dict)        
