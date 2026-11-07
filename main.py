@@ -30,6 +30,20 @@ def fn_validar_dni(dni_validar_str):
 
     return True
 
+#Funcion limpiar y validar nombre
+def fn_limpiar_nombre(nombre_validar_str):
+
+    nombre_validar_str = nombre_validar_str.strip().capitalize()
+
+    if nombre_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    if not nombre_validar_str.isalpha():
+        print("El nombre solo puede contener letras.")
+        return False
+
+    return True
 
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
@@ -42,8 +56,12 @@ def fn_registrar_candidato():
 
         dni_candidato_str = input("Introduce el DNI: ")
 
-    else:
-        print("DNI válido.")
+    nombre_candidato_str = input("Introduce el nombre: ")
+
+    while not fn_limpiar_nombre(nombre_candidato_str):
+        nombre_candidato_str = input("Introduce el nombre: ")
+
+    print("Candidato registrado correctamente.")
 
 #OPCIÓN 2. MODIFICAR CANDIDATO
 def fn_modificar_candidato():
