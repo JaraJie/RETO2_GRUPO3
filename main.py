@@ -67,6 +67,27 @@ def fn_limpiar_apellidos(apellidos_validar_str):
 
     return apellidos_validar_str
 
+
+def fn_validar_edad (edad_validar_str):
+
+    edad_validar_str = edad_validar_str.strip()
+
+    if edad_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    if not edad_validar_str.isdigit():
+        print("La edad debe ser un número.")
+        return False
+
+    edad_validar_int = int(edad_validar_str)
+
+    if edad_validar_int < 18:
+        print("El candidato debe tener al menos 18 años.")
+        return False
+
+    return edad_validar_int
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
@@ -99,14 +120,24 @@ def fn_registrar_candidato():
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while apellidos_candidato_str == False:
-        apellidos_candidato_str = input("Introduce los apelidos: ")
+        apellidos_candidato_str = input("Introduce los apellidos: ")
         apellidos_candidato_str = fn_limpiar_apellidos(apellidos_candidato_str)
+
+    #SOLICITAD EDAD DEL CANDIDATO
+    edad_candidato_int = input("Introduce la edad: ")
+
+    edad_candidato_int = fn_validar_edad(edad_candidato_int)
+
+    while edad_candidato_int == False:
+        edad_candidato_int = input("Introduce la edad: ")
+        edad_candidato_int = fn_validar_edad(edad_candidato_int)
 
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
         "nombre": nombre_candidato_str,
-        "apellidos": apellidos_candidato_str
+        "apellidos": apellidos_candidato_str,
+        "edad": edad_candidato_int
     }
 
     print(candidato_dict)        
