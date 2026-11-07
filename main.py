@@ -5,23 +5,27 @@ import json
 #Función para validar DNI
 def fn_validar_dni(dni_validar_str):
 
+    #Eliminar espacios del DNI y convertir la letra en mayúscula
     dni_validar_str = dni_validar_str.strip().upper()
 
-    
+    #Comprobar que no deja el espacio en blanco#
     if dni_validar_str == "":
         print("Tienes que rellenar este campo.")
         return False
 
+    #Comprobar que el DNI tiene 9 caracteres
     if len(dni_validar_str) != 9:
-        print("El DNI contiene 9 carácteres.")
+        print("El DNI contiene 9 caracteres.")
         return False
 
+    #Comprobar que los 8 primeros son números
     if not dni_validar_str[:8].isdigit():
-        print("El DNI debe tener 8 dígitos")
+        print("El DNI debe tener 8 dígitos.")
         return False
 
+    #Comprobar que el último caracter es una letra
     if not dni_validar_str[8].isalpha():
-        print("El DNI debe tener una letra al final")
+        print("El DNI debe tener una letra al final.")
         return False
 
     return True
@@ -30,8 +34,10 @@ def fn_validar_dni(dni_validar_str):
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
+    #Solicitar el DNI
     dni_candidato_str = input("Introduce el DNI: ")
 
+    #Mientras que el DNI no sea valido, repetir la funcion de validación del DNI
     while not fn_validar_dni(dni_candidato_str):
 
         dni_candidato_str = input("Introduce el DNI: ")
