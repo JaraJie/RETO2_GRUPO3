@@ -28,7 +28,7 @@ def fn_validar_dni(dni_validar_str):
         print("El DNI debe tener una letra al final.")
         return False
 
-    return True
+    return dni_validar_str
 
 #Función limpiar y validar nombre
 def fn_limpiar_nombre(nombre_validar_str):
@@ -73,10 +73,12 @@ def fn_registrar_candidato():
     #SOLICITAR DNI DEL CANDIDATO
     dni_candidato_str = input("Introduce el DNI: ")
 
-    #Mientras que el DNI no sea valido, repetir la funcion de validación del DNI
-    while not fn_validar_dni(dni_candidato_str):
+    dni_candidato_str = fn_validar_dni(dni_candidato_str)
 
+    #Mientras que el DNI no sea valido, repetir la funcion de validación del DNI
+    while dni_candidato_str == False:
         dni_candidato_str = input("Introduce el DNI: ")
+        dni_candidato_str = fn_validar_dni(dni_candidato_str)
 
     #SOLICITAR NOMBRE DEL CANDIDATO
     nombre_candidato_str = input("Introduce el nombre: ")
@@ -90,7 +92,7 @@ def fn_registrar_candidato():
         nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
 
     #SOLICITAR APELLIDOS DEL CANDIDATO
-    apellidos_candidato_str = input("Introduce los apelidos: ")
+    apellidos_candidato_str = input("Introduce los apellidos: ")
 
     #Llama a la función apellidos y guarda el resultado en la variable
     apellidos_candidato_str = fn_limpiar_apellidos(apellidos_candidato_str)
