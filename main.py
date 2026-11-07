@@ -33,7 +33,7 @@ def fn_validar_dni(dni_validar_str):
 #Función limpiar y validar nombre
 def fn_limpiar_nombre(nombre_validar_str):
 
-    #Elimina espacios del nombre y convierte todo en minúsculas menos la primera letra de cada palabra
+    #Elimina espacios del nombre (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     nombre_validar_str = nombre_validar_str.strip().title()
 
     #Comprobar que no deja el espacio en blanco
@@ -52,12 +52,15 @@ def fn_limpiar_nombre(nombre_validar_str):
 #Función limpiar y validar apellidos
 def fn_limpiar_apellidos(apellidos_validar_str):
 
+    #Elimina espacios de los apellidos (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     apellidos_validar_str = apellidos_validar_str.strip().title()
 
+    #Comprobar que no deja el espacio en blanco
     if apellidos_validar_str == "":
         print("Tienes que rellenar este campo.")
         return False
 
+    #Comprobar que los apellidos solo contienen letras, permitiendo espacios
     if not apellidos_validar_str.replace(" ","").isalpha():
         print("Los apellidos solo puede contener letras.")
         return False
@@ -78,10 +81,10 @@ def fn_registrar_candidato():
     #SOLICITAR NOMBRE DEL CANDIDATO
     nombre_candidato_str = input("Introduce el nombre: ")
 
-    #Llama a la función y guarda el resultado en la variable
+    #Llama a la función nombre y guarda el resultado en la variable
     nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
 
-    #Bucle infinito en caso de que la variable te devuelva que es incorrecta
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while nombre_candidato_str == False:
         nombre_candidato_str = input("Introduce el nombre: ")
         nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
@@ -89,8 +92,10 @@ def fn_registrar_candidato():
     #SOLICITAR APELLIDOS DEL CANDIDATO
     apellidos_candidato_str = input("Introduce los apelidos: ")
 
+    #Llama a la función apellidos y guarda el resultado en la variable
     apellidos_candidato_str = fn_limpiar_apellidos(apellidos_candidato_str)
 
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while apellidos_candidato_str == False:
         apellidos_candidato_str = input("Introduce los apelidos: ")
         apellidos_candidato_str = fn_limpiar_apellidos(apellidos_candidato_str)
