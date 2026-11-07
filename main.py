@@ -58,6 +58,12 @@ def fn_validar_dni(dni_validar_str):
         print("El DNI debe tener una letra al final.")
         return False
 
+    #Comprobar que el DNI no este registrado anteriormente
+    for candidato_str in candidatos_lst:
+        if candidato_str["dni"] == dni_validar_str:
+            print("Este DNI ya está registrado. Introduce otro.")
+            return False
+    
     return dni_validar_str
 
 #Función limpiar y validar nombre
