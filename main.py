@@ -262,6 +262,19 @@ def fn_validar_experiencia(experiencia_validar_str):
 
     return experiencia_validar_int
 
+#Función para validar puesto solicitado
+def fn_validar_puesto(puesto_validar_str):
+
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+    puesto_validar_str = puesto_validar_str.strip().title()
+
+    #Comprobar que no deja el espacio en blanco
+    if puesto_validar_str == "":
+        print("El puesto solicitado no puede estar vacío.")
+        return False
+
+    return puesto_validar_str
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
@@ -367,6 +380,17 @@ def fn_registrar_candidato():
         experiencia_candidato_int = input("Introduce los años de experiencia: ")
         experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
 
+    #SOLICITAR PUESTO DESEADO
+    puesto_candidato_str = input("Introduce el puesto solicitado: ")
+
+    #Llama a la función candidato y guarda el resultado en la variable
+    puesto_candidato_str = fn_validar_puesto(puesto_candidato_str)
+
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
+    while puesto_candidato_str == False:
+        puesto_candidato_str = input("Introduce el puesto solicitado: ")
+        puesto_candidato_str = fn_validar_puesto(puesto_candidato_str)
+
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
@@ -378,7 +402,8 @@ def fn_registrar_candidato():
         "telefono": telefono_candidato_str,
         "estudios": estudios_candidato_str,
         "titulacion": titulacion_candidato_str,
-        "experiencia": experiencia_candidato_int
+        "experiencia": experiencia_candidato_int,
+        "puesto_solicitado": puesto_candidato_str,
     }
 
     print(candidato_dict)        
