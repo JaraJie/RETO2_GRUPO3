@@ -12,7 +12,7 @@ def fn_guardar_candidatos():
     with open("candidatos.json", "w") as x:
         json.dump(candidatos_lst, x, indent=4)
 
-    print("Los candidatos se han guardado correctamente.")
+    print("\n--- CANDIDATOS GUARDADOS CORRECTAMENTE ---")
 
 #FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON
 def fn_cargar_candidatos():
@@ -230,7 +230,7 @@ def fn_validar_estudios():
     while True:
 
         #Solicitar opción al candidato
-        estudios_validar_str = input("Selecciona tu nivel de estudios (1-8): ")
+        estudios_validar_str = input("\nSelecciona tu nivel de estudios (1-8): ")
 
         #Dependiendo de lo que se escoja guardara diferentes niveles
         if estudios_validar_str == "1":
@@ -318,14 +318,14 @@ def fn_introducir_competencias():
     competencias_lst = []
 
     #Mostrar instrucciones
-    print("Introduce las competencias técnicas.")
+    print("\nIntroduce las competencias técnicas.")
     print("Al finalizar escriba 'FIN'.")
 
     #Bucle infinito hasta que el usuario escriba fin
     while True:
 
         #solicitar competencias al candidato
-        competencia_str = input("Compentencia técnica: ")
+        competencia_str = input("\nCompentencia técnica: ")
 
         #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
         competencia_str = competencia_str.strip().title()
@@ -359,14 +359,14 @@ def fn_introducir_idiomas():
     idiomas_lst = []
 
     #Mostrar instrucciones
-    print("Introduce los idiomas.")
+    print("\nIntroduce los idiomas.")
     print("Al finalizar escriba 'FIN'.")
 
     #Bucle infinito hasta que el usuario escriba fin
     while True:
 
         #solicitar idiomas al candidato
-        idioma_str = input("Idioma: ")
+        idioma_str = input("\nIdioma: ")
 
         #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
         idioma_str = idioma_str.strip().title()
@@ -396,117 +396,121 @@ def fn_introducir_idiomas():
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
+    os.system('cls')
+
+    print("--- REGISTRO DE NUEVO CANDIDATO ---")
+
     #SOLICITAR DNI DEL CANDIDATO
-    dni_candidato_str = input("Introduce el DNI: ")
+    dni_candidato_str = input("\nIntroduce el DNI: ")
 
     #Llama a la función DNI y guarda el resultado en la variable
     dni_candidato_str = fn_validar_dni(dni_candidato_str)
 
     #Mientras que el DNI no sea valido, repetir la funcion de validación del DNI
     while dni_candidato_str == False:
-        dni_candidato_str = input("Introduce el DNI: ")
+        dni_candidato_str = input("\nIntroduce el DNI: ")
         dni_candidato_str = fn_validar_dni(dni_candidato_str)
 
     #SOLICITAR NOMBRE DEL CANDIDATO
-    nombre_candidato_str = input("Introduce el nombre: ")
+    nombre_candidato_str = input("\nIntroduce el nombre: ")
 
     #Llama a la función nombre y guarda el resultado en la variable
     nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while nombre_candidato_str == False:
-        nombre_candidato_str = input("Introduce el nombre: ")
+        nombre_candidato_str = input("\nIntroduce el nombre: ")
         nombre_candidato_str = fn_limpiar_nombre(nombre_candidato_str)
 
     #SOLICITAR APELLIDOS DEL CANDIDATO
-    apellidos_candidato_str = input("Introduce los apellidos: ")
+    apellidos_candidato_str = input("\nIntroduce los apellidos: ")
 
     #Llama a la función apellidos y guarda el resultado en la variable
     apellidos_candidato_str = fn_limpiar_apellidos(apellidos_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while apellidos_candidato_str == False:
-        apellidos_candidato_str = input("Introduce los apellidos: ")
+        apellidos_candidato_str = input("\nIntroduce los apellidos: ")
         apellidos_candidato_str = fn_limpiar_apellidos(apellidos_candidato_str)
 
     #SOLICITAD EDAD DEL CANDIDATO
-    edad_candidato_int = input("Introduce la edad: ")
+    edad_candidato_int = input("\nIntroduce la edad: ")
 
     #Llama a la función edad y guarda el resultado en la variable
     edad_candidato_int = fn_validar_edad(edad_candidato_int)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while edad_candidato_int == False:
-        edad_candidato_int = input("Introduce la edad: ")
+        edad_candidato_int = input("\nIntroduce la edad: ")
         edad_candidato_int = fn_validar_edad(edad_candidato_int)
 
     #SOLICITAR CIUDAD DEL CANDIDATO
-    ciudad_candidato_str = input("Introduce la ciudad: ")
+    ciudad_candidato_str = input("\nIntroduce la ciudad: ")
 
     #Llama a la función ciudad y guarda el resultado en la variable
     ciudad_candidato_str = fn_limpiar_ciudad(ciudad_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while ciudad_candidato_str == False:
-        ciudad_candidato_str = input("Introduce la ciudad: ")
+        ciudad_candidato_str = input("\nIntroduce la ciudad: ")
         ciudad_candidato_str = fn_limpiar_ciudad(ciudad_candidato_str)
 
     #SOLICITAR EMAILL DEL CANDIDATO
-    email_candidato_str = input("Introduce el email: ")
+    email_candidato_str = input("\nIntroduce el email: ")
 
     #Llama a la función email y guarda el resultado en la variable
     email_candidato_str = fn_validar_email(email_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while email_candidato_str == False:
-        email_candidato_str = input("Introduce el email: ")
+        email_candidato_str = input("\nIntroduce el email: ")
         email_candidato_str = fn_validar_email(email_candidato_str)
 
     #SOLICITAR TELÉFONO DEL CANDIDATO
-    telefono_candidato_str = input("Introduce el teléfono: ")
+    telefono_candidato_str = input("\nIntroduce el teléfono: ")
 
     #Llama a la función telefono y guarda el resultado en la variable
     telefono_candidato_str = fn_validar_telefono(telefono_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while telefono_candidato_str == False:
-        telefono_candidato_str = input("Introduce el teléfono: ")
+        telefono_candidato_str = input("\nIntroduce el teléfono: ")
         telefono_candidato_str = fn_validar_telefono(telefono_candidato_str)
 
     #SOLICITAR NIVEL DE ESTUDIOS DEL CANDIDATO
     estudios_candidato_str = fn_validar_estudios()
 
     #SOLICITAR TITULACIÓN DEL CANDIDATO
-    titulacion_candidato_str = input("Introduce tu titulación: ")
+    titulacion_candidato_str = input("\nIntroduce tu titulación: ")
 
     #Llama a la función titulación y guarda el resultado en la variable
     titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while titulacion_candidato_str is False:
-        titulacion_candidato_str = input("Introduce tu titulación: ")
+        titulacion_candidato_str = input("\nIntroduce tu titulación: ")
         titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
 
     #SOLICITAR EXPERIENCIA DEL CANDIDATO
-    experiencia_candidato_int = input("Introduce los años de experiencia: ")
+    experiencia_candidato_int = input("\nIntroduce los años de experiencia: ")
 
     #Llama a la función experiencia y guarda el resultado en la variable
     experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while experiencia_candidato_int == False:
-        experiencia_candidato_int = input("Introduce los años de experiencia: ")
+        experiencia_candidato_int = input("\nIntroduce los años de experiencia: ")
         experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
 
     #SOLICITAR PUESTO DESEADO DEL CANDIDATO
-    puesto_candidato_str = input("Introduce el puesto solicitado: ")
+    puesto_candidato_str = input("\nIntroduce el puesto solicitado: ")
 
     #Llama a la función candidato y guarda el resultado en la variable
     puesto_candidato_str = fn_validar_puesto(puesto_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while puesto_candidato_str == False:
-        puesto_candidato_str = input("Introduce el puesto solicitado: ")
+        puesto_candidato_str = input("\nIntroduce el puesto solicitado: ")
         puesto_candidato_str = fn_validar_puesto(puesto_candidato_str)
 
     #SOLICITAR COMPETENCIAS DEL CANDIDATO
