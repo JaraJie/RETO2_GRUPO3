@@ -33,7 +33,7 @@ def fn_validar_dni(dni_validar_str):
 #Funcion limpiar y validar nombre
 def fn_limpiar_nombre(nombre_validar_str):
 
-    #Elimina espacios del nombre y convierte todo en minúsculas menos la primera letra
+    #Elimina espacios del nombre y convierte todo en minúsculas menos la primera letra de cada palabra
     nombre_validar_str = nombre_validar_str.strip().title()
 
     #Comprobar que no deja el espacio en blanco
@@ -41,7 +41,7 @@ def fn_limpiar_nombre(nombre_validar_str):
         print("Tienes que rellenar este campo.")
         return False
 
-    #Comrpobar que el nombre solo contiene letras
+    #Comprobar que el nombre solo contiene letras, permitiendo espacios para los nombres compuestos
     if not nombre_validar_str.replace(" ","").isalpha():
         print("El nombre solo puede contener letras.")
         return False
