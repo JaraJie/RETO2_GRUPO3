@@ -96,12 +96,15 @@ def fn_validar_edad (edad_validar_str):
 #Función para limpiar y validar ciudad
 def fn_limpiar_ciudad(ciudad_validar_str):
 
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     ciudad_validar_str = ciudad_validar_str.strip().title()
 
+    #Comprobar que no deja el espacio en blanco
     if ciudad_validar_str == "":
         print("Tienes que rellenar este campo.")
         return False
 
+    #Comprobar que los apellidos solo contienen letras, permitiendo espacios y guiones
     if not ciudad_validar_str.replace(" ","").replace("-","").isalpha():
         print("La ciudad solo puede contener letras.")
         return False
@@ -157,8 +160,10 @@ def fn_registrar_candidato():
     #SOLICITAR CIUDAD DEL CANDIDATO
     ciudad_candidato_str = input("Introduce la ciudad: ")
 
+    #Llama a la función ciudad y guarda el resultado en la variable
     ciudad_candidato_str = fn_limpiar_ciudad(ciudad_candidato_str)
 
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while ciudad_candidato_str == False:
         ciudad_candidato_str = input("Introduce la ciudad: ")
         ciudad_candidato_str = fn_limpiar_ciudad(ciudad_candidato_str)
