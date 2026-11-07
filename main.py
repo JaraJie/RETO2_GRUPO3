@@ -172,6 +172,56 @@ def fn_validar_telefono(telefono_validar_str):
 
     return telefono_validar_str
 
+#Función para seleccionar nivel de estudios
+def fn_validar_estudios():
+    print("""
+              NIVEL DE ESTUDIOS
+        --------------------------------
+        1. Sin estudios
+        2. ESO
+        3. Bachillerato
+        4. FP Medio
+        5. FP Superior
+        6. Grado universitario
+        7. Máster
+        8. Doctorado
+        --------------------------------
+        """)
+
+    while True:
+
+        estudios_validar_str = input("Selecciona tu nivel de estudios (1-8): ")
+
+        if estudios_validar_str == "1":
+            estudios_validar_str = "Sin estudios"
+
+        elif estudios_validar_str == "2":
+            estudios_validar_str = "ESO"
+
+        elif estudios_validar_str == "3":
+            estudios_validar_str = "Bachillerato"
+
+        elif estudios_validar_str == "4":
+            estudios_validar_str = "FP Medio"
+
+        elif estudios_validar_str == "5":
+            estudios_validar_str = "FP Superior"
+
+        elif estudios_validar_str == "6":
+            estudios_validar_str = "Grado universitario"
+
+        elif estudios_validar_str == "7":
+            estudios_validar_str = "Máster"
+
+        elif estudios_validar_str == "8":
+            estudios_validar_str = "Doctorado"
+
+        else:
+            print("Opción no válida. Introduce un número del 1 al 8.")
+            continue
+
+        return estudios_validar_str
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
@@ -252,6 +302,9 @@ def fn_registrar_candidato():
         telefono_candidato_str = input("Introduce el teléfono: ")
         telefono_candidato_str = fn_validar_telefono(telefono_candidato_str)
 
+    #SOLICITAR NIVEL DE ESTUDIOS DEL CANDIDATO
+    estudios_candidato_str = fn_validar_estudios()
+
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
@@ -260,7 +313,8 @@ def fn_registrar_candidato():
         "edad": edad_candidato_int,
         "ciudad": ciudad_candidato_str,
         "email": email_candidato_str,
-        "telefono": telefono_candidato_str
+        "telefono": telefono_candidato_str,
+        "estudios": estudios_candidato_str
     }
 
     print(candidato_dict)        
