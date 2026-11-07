@@ -8,6 +8,7 @@ candidatos_lst = []
 #FUNCIÓN PARA GUARDAR CANDIDATOS EN JSON
 def fn_guardar_candidatos():
 
+    #Abrir archivo.json y escribir la lista de candidatos
     with open("candidatos.json", "w") as x:
         json.dump(candidatos_lst, x, indent=4)
 
@@ -16,12 +17,17 @@ def fn_guardar_candidatos():
 #FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON
 def fn_cargar_candidatos():
 
+    #Abrir y leer el archivo.json
     with open("candidatos.json", "r") as x:
 
+        #Todo lo que lea en el archivo.json estará en la siguiente variable
         contenido_str = x.read()
 
+        #En caso de que el contenido este vacio creará una lista
         if contenido_str == "":
             candidatos_lst = []
+        
+        #Si no abrira el archivo y su contenido
         else:
             candidatos_lst = json.loads(contenido_str)
 
