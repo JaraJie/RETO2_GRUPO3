@@ -228,6 +228,34 @@ def fn_validar_estudios():
 
         return estudios_validar_str
 
+#Función para validar titulación
+def fn_validar_titulacion(titulacion_validar_str):
+
+    titulacion_validar_str = titulacion_validar_str.strip().title()
+
+    if titulacion_validar_str == "":
+            print("Tienes que rellenar este campo.")
+            return False
+
+    return titulacion_validar_str
+    
+#Función para validar experiencia
+def fn_validar_experiencia(experiencia_validar_str):
+
+    experiencia_validar_str = experiencia_validar_str.strip()
+
+    if experiencia_validar_str == "":
+        print("La experiencia no puede estar vacía.")
+        return False
+
+    if not experiencia_validar_str.isdigit():
+        print("La experiencia debe ser un número entero igual o superior a 0.")
+        return False
+
+    experiencia_validar_int = int(experiencia_validar_str)
+
+    return experiencia_validar_int
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
@@ -311,6 +339,22 @@ def fn_registrar_candidato():
     #SOLICITAR NIVEL DE ESTUDIOS DEL CANDIDATO
     estudios_candidato_str = fn_validar_estudios()
 
+    #SOLICITAR TITULACIÓN DEL CANDIDATO
+    titulacion_candidato_str = input("Introduce tu titulación: ")
+    titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
+
+    while titulacion_candidato_str == False:
+        titulacion_candidato_str = input("Introduce tu titulación: ")
+        titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
+
+    #SOLICITAR EXPERIENCIA DEL CANDIDATO
+    experiencia_candidato_int = input("Introduce los años de experiencia: ")
+    experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
+
+    while experiencia_candidato_int == False:
+        experiencia_candidato_int = input("Introduce los años de experiencia: ")
+        experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
+
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
@@ -320,7 +364,9 @@ def fn_registrar_candidato():
         "ciudad": ciudad_candidato_str,
         "email": email_candidato_str,
         "telefono": telefono_candidato_str,
-        "estudios": estudios_candidato_str
+        "estudios": estudios_candidato_str,
+        "titulacion": titulacion_candidato_str,
+        "experiencia": experiencia_candidato_int
     }
 
     print(candidato_dict)        
