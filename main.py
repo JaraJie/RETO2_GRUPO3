@@ -80,7 +80,7 @@ def fn_validar_edad (edad_validar_str):
 
     #Comprobar que es un número
     if not edad_validar_str.isdigit():
-        print("La edad debe ser un número.")
+        print("La edad debe ser un número entero y positivo.")
         return False
 
     #Convertir la edad de texto a número
@@ -92,6 +92,21 @@ def fn_validar_edad (edad_validar_str):
         return False
 
     return edad_validar_int
+
+#Función para limpiar y validar ciudad
+def fn_limpiar_ciudad(ciudad_validar_str):
+
+    ciudad_validar_str = ciudad_validar_str.strip().title()
+
+    if ciudad_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    if not ciudad_validar_str.replace(" ","").replace("-","").isalpha():
+        print("La ciudad solo puede contener letras.")
+        return False
+
+    return ciudad_validar_str
 
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
@@ -139,12 +154,22 @@ def fn_registrar_candidato():
         edad_candidato_int = input("Introduce la edad: ")
         edad_candidato_int = fn_validar_edad(edad_candidato_int)
 
+    #SOLICITAR CIUDAD DEL CANDIDATO
+    ciudad_candidato_str = input("Introduce la ciudad: ")
+
+    ciudad_candidato_str = fn_limpiar_ciudad(ciudad_candidato_str)
+
+    while ciudad_candidato_str == False:
+        ciudad_candidato_str = input("Introduce la ciudad: ")
+        ciudad_candidato_str = fn_limpiar_ciudad(ciudad_candidato_str)
+
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
         "nombre": nombre_candidato_str,
         "apellidos": apellidos_candidato_str,
-        "edad": edad_candidato_int
+        "edad": edad_candidato_int,
+        "ciudad": ciudad_candidato_str
     }
 
     print(candidato_dict)        
