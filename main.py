@@ -477,7 +477,7 @@ def fn_registrar_candidato():
     titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
 
     #Bucle infinito en caso de que la función te devuelva que es incorrecta
-    while titulacion_candidato_str == False:
+    while titulacion_candidato_str is False:
         titulacion_candidato_str = input("Introduce tu titulación: ")
         titulacion_candidato_str = fn_validar_titulacion(titulacion_candidato_str)
 
