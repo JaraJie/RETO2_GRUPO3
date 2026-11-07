@@ -152,16 +152,20 @@ def fn_validar_email(email_validar_str):
 #Función para validar teléfono
 def fn_validar_telefono(telefono_validar_str):
 
+    #Elimina espacios (inicio/final)
     telefono_validar_str = telefono_validar_str.strip()
 
+    #Comprobar que no deja el espacio en blanco
     if telefono_validar_str == "":
         print("Tienes que rellenar este campo.")
         return False
 
+    #Comprobar que el telefono tiene 9 caracteres
     if len(telefono_validar_str) != 9:
         print("El teléfono debe contener 9 dígitos.")
         return False
 
+    #Comprobar si son números
     if not telefono_validar_str.isdigit():
         print("El teléfono solo puede contener números.")
         return False
@@ -174,6 +178,7 @@ def fn_registrar_candidato():
     #SOLICITAR DNI DEL CANDIDATO
     dni_candidato_str = input("Introduce el DNI: ")
 
+    #Llama a la función DNI y guarda el resultado en la variable
     dni_candidato_str = fn_validar_dni(dni_candidato_str)
 
     #Mientras que el DNI no sea valido, repetir la funcion de validación del DNI
@@ -239,8 +244,10 @@ def fn_registrar_candidato():
     #SOLICITAR TELÉFONO DEL CANDIDATO
     telefono_candidato_str = input("Introduce el teléfono: ")
 
+    #Llama a la función telefono y guarda el resultado en la variable
     telefono_candidato_str = fn_validar_telefono(telefono_candidato_str)
 
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while telefono_candidato_str == False:
         telefono_candidato_str = input("Introduce el teléfono: ")
         telefono_candidato_str = fn_validar_telefono(telefono_candidato_str)
