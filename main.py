@@ -275,6 +275,37 @@ def fn_validar_puesto(puesto_validar_str):
 
     return puesto_validar_str
 
+#Función para introducir competencias técnicas
+def fn_introducir_competencias():
+
+    competencias_lst = []
+
+    print("Introduce las competencias técnicas.")
+    print("Al finalizar escriba 'FIN'.")
+
+    while True:
+        competencia_str = input("Compentencia técnica: ")
+
+        competencia_str = competencia_str.strip().title()
+
+        if competencia_str == "":
+            print("Debes introducir una competencia técnica.")
+            continue
+
+        if competencia_str == "Fin":
+            if len(competencias_lst) == 0:
+                print("Debes introducir al menos una competencia técnica.")
+                continue
+            break
+
+        if competencia_str in competencias_lst:
+            print("Esa competencia ya está introducida.")
+            continue
+
+        competencias_lst.append(competencia_str)
+
+    return competencias_lst
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
@@ -380,7 +411,7 @@ def fn_registrar_candidato():
         experiencia_candidato_int = input("Introduce los años de experiencia: ")
         experiencia_candidato_int = fn_validar_experiencia(experiencia_candidato_int)
 
-    #SOLICITAR PUESTO DESEADO
+    #SOLICITAR PUESTO DESEADO DEL CANDIDATO
     puesto_candidato_str = input("Introduce el puesto solicitado: ")
 
     #Llama a la función candidato y guarda el resultado en la variable
@@ -390,6 +421,9 @@ def fn_registrar_candidato():
     while puesto_candidato_str == False:
         puesto_candidato_str = input("Introduce el puesto solicitado: ")
         puesto_candidato_str = fn_validar_puesto(puesto_candidato_str)
+
+    #SOLICITAR COMPETENCIAS DEL CANDIDATO
+    competencias_candidato_lst = fn_introducir_competencias()
 
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
@@ -404,6 +438,7 @@ def fn_registrar_candidato():
         "titulacion": titulacion_candidato_str,
         "experiencia": experiencia_candidato_int,
         "puesto_solicitado": puesto_candidato_str,
+        "competencias_tecnicas": competencias_candidato_lst
     }
 
     print(candidato_dict)        
