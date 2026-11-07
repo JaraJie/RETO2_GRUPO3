@@ -249,7 +249,7 @@ def fn_validar_experiencia(experiencia_validar_str):
 
     #Comprobar que no deja el espacio en blanco
     if experiencia_validar_str == "":
-        print("La experiencia no puede estar vacía.")
+        print("Tienes que rellenar este campo.")
         return False
 
     #Comprobar que introduce un número entero y positivo
@@ -270,7 +270,7 @@ def fn_validar_puesto(puesto_validar_str):
 
     #Comprobar que no deja el espacio en blanco
     if puesto_validar_str == "":
-        print("El puesto solicitado no puede estar vacío.")
+        print("Tienes que rellenar este campo.")
         return False
 
     return puesto_validar_str
@@ -296,7 +296,7 @@ def fn_introducir_competencias():
 
         #Comprobar que no deja el espacio en blanco
         if competencia_str == "":
-            print("Debes introducir una competencia técnica.")
+            print("Tienes que rellenar este campo.")
             continue
 
         #En caso de que el usuario escriba fin y no hay competencias en la lista que le pida que escriba al menos una
@@ -315,6 +315,47 @@ def fn_introducir_competencias():
         competencias_lst.append(competencia_str)
 
     return competencias_lst
+
+#Función para introducir idiomas
+def fn_introducir_idiomas():
+
+    #Crear una lista para los idiomas
+    idiomas_lst = []
+
+    #Mostrar instrucciones
+    print("Introduce los idiomas.")
+    print("Al finalizar escriba 'FIN'.")
+
+    #Bucle infinito hasta que el usuario escriba fin
+    while True:
+
+        #solicitar idiomas al candidato
+        idioma_str = input("Idioma: ")
+
+        #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+        idioma_str = idioma_str.strip().title()
+
+        #Comprobar que no deja el espacio en blanco
+        if idioma_str == "":
+            print("Tienes que rellenar este campo.")
+            continue
+
+        #En caso de que el usuario escriba fin y no hay idiomas en la lista que le pida que escriba al menos una
+        if idioma_str == "Fin":
+            if len(idiomas_lst) == 0:
+                print("Debes introducir al menos un idioma.")
+                continue
+            break #Finalizar el bucle
+
+        #Comprobar si el idioma estaba en la lista
+        if idioma_str in idiomas_lst:
+            print("Ese idioma ya está introducido.")
+            continue
+
+        #Añadir idiomas introducidas por el candidato a la lista
+        idiomas_lst.append(idioma_str)
+
+    return idiomas_lst
 
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
@@ -435,6 +476,9 @@ def fn_registrar_candidato():
     #SOLICITAR COMPETENCIAS DEL CANDIDATO
     competencias_candidato_lst = fn_introducir_competencias()
 
+    #SOLICITAR IDIOMAS DEL CANDIDATO
+    idiomas_candidato_lst = fn_introducir_idiomas()
+
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
@@ -448,7 +492,8 @@ def fn_registrar_candidato():
         "titulacion": titulacion_candidato_str,
         "experiencia": experiencia_candidato_int,
         "puesto_solicitado": puesto_candidato_str,
-        "competencias_tecnicas": competencias_candidato_lst
+        "competencias_tecnicas": competencias_candidato_lst,
+        "idiomas": idiomas_candidato_lst,
     }
 
     print(candidato_dict)        
