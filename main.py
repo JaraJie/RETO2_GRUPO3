@@ -5,7 +5,7 @@ import json
 #Función para validar DNI
 def fn_validar_dni(dni_validar_str):
 
-    #Eliminar espacios del DNI y convertir la letra en mayúscula
+    #Eliminar espacios (inicio/final) y convertir la letra en mayúscula
     dni_validar_str = dni_validar_str.strip().upper()
 
     #Comprobar que no deja el espacio en blanco
@@ -33,7 +33,7 @@ def fn_validar_dni(dni_validar_str):
 #Función limpiar y validar nombre
 def fn_limpiar_nombre(nombre_validar_str):
 
-    #Elimina espacios del nombre (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     nombre_validar_str = nombre_validar_str.strip().title()
 
     #Comprobar que no deja el espacio en blanco
@@ -52,7 +52,7 @@ def fn_limpiar_nombre(nombre_validar_str):
 #Función limpiar y validar apellidos
 def fn_limpiar_apellidos(apellidos_validar_str):
 
-    #Elimina espacios de los apellidos (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     apellidos_validar_str = apellidos_validar_str.strip().title()
 
     #Comprobar que no deja el espacio en blanco
@@ -67,21 +67,26 @@ def fn_limpiar_apellidos(apellidos_validar_str):
 
     return apellidos_validar_str
 
-
+#Función para validar edad
 def fn_validar_edad (edad_validar_str):
 
+    #Eliminar espacios (inicio/final)
     edad_validar_str = edad_validar_str.strip()
 
+    #Comprobar que no deja el espacio en blanco
     if edad_validar_str == "":
         print("Tienes que rellenar este campo.")
         return False
 
+    #Comprobar que es un número
     if not edad_validar_str.isdigit():
         print("La edad debe ser un número.")
         return False
 
+    #Convertir la edad de texto a número
     edad_validar_int = int(edad_validar_str)
 
+    #Comprobar que sea mayor de 18 años
     if edad_validar_int < 18:
         print("El candidato debe tener al menos 18 años.")
         return False
@@ -126,8 +131,10 @@ def fn_registrar_candidato():
     #SOLICITAD EDAD DEL CANDIDATO
     edad_candidato_int = input("Introduce la edad: ")
 
+    #Llama a la función edad y guarda el resultado en la variable
     edad_candidato_int = fn_validar_edad(edad_candidato_int)
 
+    #Bucle infinito en caso de que la función te devuelva que es incorrecta
     while edad_candidato_int == False:
         edad_candidato_int = input("Introduce la edad: ")
         edad_candidato_int = fn_validar_edad(edad_candidato_int)
