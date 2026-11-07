@@ -111,6 +111,37 @@ def fn_limpiar_ciudad(ciudad_validar_str):
 
     return ciudad_validar_str
 
+#Función para limpiar y validar email
+def fn_validar_email(email_validar_str):
+
+    email_validar_str = email_validar_str.strip().lower()
+
+    if email_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    if email_validar_str.count("@") != 1:
+        print("El email debe contener una única @.")
+        return False
+
+    if " " in email_validar_str:
+        print("El email no puede contener espacios.")
+        return False
+
+    if not email_validar_str.endswith(".es") and not email_validar_str.endswith(".com"):
+        print("El email debe terminar con '.es' o '.com'")
+        return False
+
+    if email_validar_str.startswith("@"):
+        print("El email debe contener un usuario antes de la @.")
+        return False
+
+    if email_validar_str.endswith("@.es") or email_validar_str.endswith("@.com"):
+        print("El email debe contener un dominio.")
+        return False
+
+    return email_validar_str
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
 
@@ -168,13 +199,23 @@ def fn_registrar_candidato():
         ciudad_candidato_str = input("Introduce la ciudad: ")
         ciudad_candidato_str = fn_limpiar_ciudad(ciudad_candidato_str)
 
+    #SOLICITAR EMAILL DEL CANDIDATO
+    email_candidato_str = input("Introduce el email: ")
+
+    email_candidato_str = fn_validar_email(email_candidato_str)
+
+    while email_candidato_str == False:
+        email_candidato_str = input("Introduce el email: ")
+        email_candidato_str = fn_validar_email(email_candidato_str)
+
     #AÑADIR DATOS DEL CANDIDATO A UN DICCIONARIO
     candidato_dict = {
         "dni": dni_candidato_str,
         "nombre": nombre_candidato_str,
         "apellidos": apellidos_candidato_str,
         "edad": edad_candidato_int,
-        "ciudad": ciudad_candidato_str
+        "ciudad": ciudad_candidato_str,
+        "email": email_candidato_str
     }
 
     print(candidato_dict)        
