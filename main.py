@@ -278,30 +278,40 @@ def fn_validar_puesto(puesto_validar_str):
 #Función para introducir competencias técnicas
 def fn_introducir_competencias():
 
+    #Crear una lista para las competencias
     competencias_lst = []
 
+    #Mostrar instrucciones
     print("Introduce las competencias técnicas.")
     print("Al finalizar escriba 'FIN'.")
 
+    #Bucle infinito hasta que el usuario escriba fin
     while True:
+
+        #solicitar competencias al candidato
         competencia_str = input("Compentencia técnica: ")
 
+        #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
         competencia_str = competencia_str.strip().title()
 
+        #Comprobar que no deja el espacio en blanco
         if competencia_str == "":
             print("Debes introducir una competencia técnica.")
             continue
 
+        #En caso de que el usuario escriba fin y no hay competencias en la lista que le pida que escriba al menos una
         if competencia_str == "Fin":
             if len(competencias_lst) == 0:
                 print("Debes introducir al menos una competencia técnica.")
                 continue
-            break
+            break #Finalizar el bucle
 
+        #Comprobar si la competencia estaba en la lista
         if competencia_str in competencias_lst:
             print("Esa competencia ya está introducida.")
             continue
 
+        #Añadir competencias escritas por el candidato a la lista
         competencias_lst.append(competencia_str)
 
     return competencias_lst
