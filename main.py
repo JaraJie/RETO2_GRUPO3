@@ -1246,7 +1246,41 @@ def fn_gestionar_candidaturas():
 
 #OPCIÓN 8. EXPORTAR INFORMES - JARA
 def fn_exportar_informes():
-    print("W.I.P.")
+
+    os.system('cls')
+
+    #Comprobar si existen candidatos registrados
+    if len(candidatos_lst) == 0:
+        print("Aún no hay candidatos disponibles para exportar.")
+
+    else:
+
+        with open("informes.txt", "w") as x:
+
+            x.write("------------------------------------------")
+            x.write("        INFORME DE CANDIDATOS")
+            x.write("              TALENTCONNECT")
+            x.write("------------------------------------------")
+
+            candidato_int = 0
+
+            for candidato_dict in candidatos_lst:
+
+                candidato_int += 1
+
+                x.write("CANDIDATO Nº " + str(candidato_int))
+                x.write("------------------------------------------")
+
+                for clave, valor in candidato_dict.items():
+                    x.write(str(clave) + ": " + str(valor))
+                
+            x.write("------------------------------------------")
+
+    print("--- INFORMES EXPORTADOS CORRECTAMENTE ---")
+    print("El archivo informes.txt se ha creado correctamente.")
+
+
+
 
 #MENÚ PRINCIPAL TALENTCONNECT - JARA
 def fn_menu():
