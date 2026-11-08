@@ -729,7 +729,12 @@ def fn_modificar_candidato():
         print("Aún no hay candidatos disponibles.")
 
     else:
-    
+
+        print("--- CANDIDATOS DISPONIBLES ---")
+
+        for candidato_dict in candidatos_lst:
+            print(" -", candidato_dict["dni"])
+
         dni_str = input("Introduce el DNI del candidato que deseas modificar: ")
 
         dni_str = dni_str.strip().upper()
@@ -909,7 +914,7 @@ def fn_mostrar_candidatos():
 
             #Recorrer el diccionario del candidato para mostrar sus datos
             for clave, valor in candidato_dict.items():
-                print(" •", clave," :", valor)
+                print(" -", clave," :", valor)
             print("-------------------------------")
 
         print("\n--- FIN DE LA LISTA DE CANDIDATOS ---")
