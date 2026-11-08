@@ -20,7 +20,7 @@ def fn_guardar_candidatos():
 
     print("\n--- CANDIDATOS GUARDADOS CORRECTAMENTE ---")
 
-#FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON
+'''#FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON
 def fn_cargar_candidatos():
 
     """
@@ -42,7 +42,7 @@ def fn_cargar_candidatos():
         
         #Si no abrira el archivo y su contenido
         else:
-            candidatos_lst = json.loads(contenido_str)
+            candidatos_lst = json.loads(contenido_str)'''
 
 
 #Función para validar DNI
@@ -726,10 +726,33 @@ def fn_registrar_candidato():
 def fn_modificar_candidato():
     print(":)")
 
-
 #OPCIÓN 3. MOSTRAR TODOS LOS CANDIDATOS
 def fn_mostrar_candidatos():
-    print(":)")
+
+    if len(candidatos_lst) == 0:
+            print("Aún no hay candidatos disponibles.")
+
+    else:
+        print("""
+        -------------------------------
+            LISTA DE CANDIDATOS
+        -------------------------------
+        """)
+
+        candidato_int = 0
+
+        for candidato_dict in candidatos_lst:
+
+            candidato_int += 1
+
+            print("\nCANDIDATO Nº", candidato_int)
+            print("-------------------------------")
+
+            for clave, valor in candidato_dict.items():
+                print(" •", clave," :", valor)
+            print("-------------------------------")
+
+        print("\n--- FIN DE LA LISTA DE CANDIDATOS ---")
 
 
 #OPCIÓN 4. BUSCAR CANDIDATO
@@ -823,8 +846,22 @@ def fn_menu():
 
         input("\nPulsa ENTER para volver al menú principal...")
 
-#Ejecuta la función con los cantitados guardados
-fn_cargar_candidatos()
+'''#Ejecuta la función con los cantitados guardados
+fn_cargar_candidatos()'''
+
+#Abrir y leer el archivo.json
+with open("candidatos.json", "r") as x:
+
+    #Todo lo que lea en el archivo.json estará en la siguiente variable
+    contenido_str = x.read()
+
+    #En caso de que el contenido este vacio creará una lista
+    if contenido_str == "":
+        candidatos_lst = []
+    
+    #Si no abrira el archivo y su contenido
+    else:
+        candidatos_lst = json.loads(contenido_str)
 
 #Ejecuta el programa
 fn_menu()
