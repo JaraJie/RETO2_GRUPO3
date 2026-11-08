@@ -1161,7 +1161,7 @@ def fn_mostrar_candidatos():
 
 #OPCIÓN 4. BUSCAR CANDIDATO
 def fn_buscar_candidato():
-    print(":)")
+    print("W.I.P.")
 
 #OPCIÓN 5. FILTRAR CANDIDATOS
 def fn_filtrar_candidatos():
@@ -1215,15 +1215,15 @@ def fn_filtrar_candidatos():
 
 #OPCIÓN 6. ELIMINAR CANDIDATOS
 def fn_eliminar_candidato():
-    print(":)")
+    print("W.I.P.")
 
 #OPCIÓN 7. GESTIONAR CANDIDATURAS
 def fn_gestionar_candidaturas():
-    print(":)")
+    print("W.I.P.")
 
 #OPCIÓN 8. EXPORTAR INFORMES
 def fn_exportar_informes():
-    print(":)")
+    print("W.I.P.")
 
 #MENÚ PRINCIPAL TALENTCONNECT
 def fn_menu():
