@@ -1,8 +1,8 @@
-#IMPORTACIÓN DE OS Y JSON
+#IMPORTACIÓN DE OS Y JSON - JARA
 import os
 import json
 
-#LISTA DE CANDIDATOS
+#LISTA DE CANDIDATOS - JARA
 candidatos_lst = []
 
 #FUNCIÓN PARA GUARDAR CANDIDATOS EN JSON
@@ -20,7 +20,7 @@ def fn_guardar_candidatos():
 
     print("\n--- CANDIDATOS GUARDADOS CORRECTAMENTE ---")
 
-'''#FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON
+'''#FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON - JARA
 def fn_cargar_candidatos():
 
     """
@@ -44,7 +44,7 @@ def fn_cargar_candidatos():
         else:
             candidatos_lst = json.loads(contenido_str)'''
 
-#Función para validar DNI
+#Función para validar DNI - JARA
 def fn_validar_dni(dni_validar_str):
 
     """
@@ -91,7 +91,7 @@ def fn_validar_dni(dni_validar_str):
     
     return dni_validar_str
 
-#Función limpiar y validar nombre
+#Función limpiar y validar nombre - JARA
 def fn_limpiar_nombre(nombre_validar_str):
 
     """
@@ -123,7 +123,7 @@ def fn_limpiar_nombre(nombre_validar_str):
 
     return nombre_validar_str
 
-#Función limpiar y validar apellidos
+#Función limpiar y validar apellidos - JARA
 def fn_limpiar_apellidos(apellidos_validar_str):
 
     """
@@ -154,7 +154,7 @@ def fn_limpiar_apellidos(apellidos_validar_str):
 
     return apellidos_validar_str
 
-#Función para validar edad
+#Función para validar edad - JARA
 def fn_validar_edad (edad_validar_str):
 
     """
@@ -191,7 +191,7 @@ def fn_validar_edad (edad_validar_str):
 
     return edad_validar_int
 
-#Función para limpiar y validar ciudad
+#Función para limpiar y validar ciudad - JARA
 def fn_limpiar_ciudad(ciudad_validar_str):
 
     """
@@ -222,7 +222,7 @@ def fn_limpiar_ciudad(ciudad_validar_str):
 
     return ciudad_validar_str
 
-#Función para limpiar y validar email
+#Función para limpiar y validar email - JARA
 def fn_validar_email(email_validar_str):
     
     """
@@ -273,7 +273,7 @@ def fn_validar_email(email_validar_str):
 
     return email_validar_str
 
-#Función para validar teléfono
+#Función para validar teléfono - JARA
 def fn_validar_telefono(telefono_validar_str):
      
     """
@@ -308,7 +308,7 @@ def fn_validar_telefono(telefono_validar_str):
 
     return telefono_validar_str
 
-#Función para seleccionar nivel de estudios
+#Función para seleccionar nivel de estudios - JARA
 def fn_validar_estudios():
      
     """
@@ -374,7 +374,7 @@ def fn_validar_estudios():
 
         return estudios_validar_str
 
-#Función para validar titulación
+#Función para validar titulación - JARA
 def fn_validar_titulacion(titulacion_validar_str):
 
     """
@@ -400,7 +400,7 @@ def fn_validar_titulacion(titulacion_validar_str):
 
     return titulacion_validar_str
     
-#Función para validar experiencia
+#Función para validar experiencia - JARA
 def fn_validar_experiencia(experiencia_validar_str):
 
     """
@@ -434,7 +434,7 @@ def fn_validar_experiencia(experiencia_validar_str):
 
     return experiencia_validar_int
 
-#Función para validar puesto solicitado
+#Función para validar puesto solicitado - JARA
 def fn_validar_puesto(puesto_validar_str):
 
     """
@@ -460,7 +460,7 @@ def fn_validar_puesto(puesto_validar_str):
 
     return puesto_validar_str
 
-#Función para introducir competencias técnicas
+#Función para introducir competencias técnicas - JARA
 def fn_introducir_competencias():
 
     """
@@ -511,7 +511,7 @@ def fn_introducir_competencias():
 
     return competencias_lst
 
-#Función para introducir idiomas
+#Función para introducir idiomas - JARA
 def fn_introducir_idiomas():
 
     """
@@ -562,8 +562,16 @@ def fn_introducir_idiomas():
 
     return idiomas_lst
 
-#Función para filtrar candidato por experiencia
+#Función para filtrar candidato por experiencia - JARA
 def fn_filtrar_experiencia():
+
+    """
+    Filtra los candidatos según los años mínimos de experiencia
+
+    Solicita los años de experiencia al usuario, comprueba
+    que sean válidos y muestra los candidatos que cumplen
+    con el mínimo solicitado
+    """
 
     print("\n--- FILTRAR POR EXPERIENCIA ---")
 
@@ -620,8 +628,15 @@ def fn_filtrar_experiencia():
                     print("-------------------------------")
             break #Sale del bucle
 
-#Función para filtrar candidatos por estudios
+#Función para filtrar candidatos por estudios - JARA
 def fn_filtrar_estudios():
+
+    """
+    Filtra los candidatos según su nivel de estudios
+
+    Solicita un nivel de estudios y muestra los candidatos
+    que tienen ese mismo nivel o uno superior
+    """
 
     print("\n---FILTRAR POR ESTUDIOS---")
 
@@ -676,8 +691,16 @@ def fn_filtrar_estudios():
                 print(" -", clave, ":", valor)
             print("-------------------------------")
 
-#Función para filtrar candidato por competencias
+#Función para filtrar candidato por competencias - JARA
 def fn_filtrar_competencias():
+
+    """
+    Filtra los candidatos según sus competencias técnicas
+
+    Muestra las competencias disponibles, solicita una
+    competencia al usuario y muestra los candidatos
+    que tengan esa competencia
+    """
 
     print("\n--- FILTRAR POR COMPETENCIAS TÉCNICAS ---")
 
@@ -750,7 +773,7 @@ def fn_filtrar_competencias():
             
             break #Sale del bucle
 
-# OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
+# OPCIÓN 1. REGISTRAR NUEVO CANDIDATO - JARA
 def fn_registrar_candidato():
     
     """
@@ -908,7 +931,7 @@ def fn_registrar_candidato():
     #Llamar a la función para que guarde el candidato registrado
     fn_guardar_candidatos()
 
-#OPCIÓN 2. MODIFICAR CANDIDATO
+#OPCIÓN 2. MODIFICAR CANDIDATO - JARA
 def fn_modificar_candidato():
 
     """
@@ -1116,7 +1139,7 @@ def fn_modificar_candidato():
             print("\nNo se ha encontrado ningún candidato con ese DNI.")
             print("Comprueba que has introducido correctamente el DNI (8 números y 1 letra).")
 
-#OPCIÓN 3. MOSTRAR TODOS LOS CANDIDATOS
+#OPCIÓN 3. MOSTRAR TODOS LOS CANDIDATOS - JARA
 def fn_mostrar_candidatos():
 
     """
@@ -1163,7 +1186,7 @@ def fn_mostrar_candidatos():
 def fn_buscar_candidato():
     print("W.I.P.")
 
-#OPCIÓN 5. FILTRAR CANDIDATOS
+#OPCIÓN 5. FILTRAR CANDIDATOS - JARA
 def fn_filtrar_candidatos():
 
     os.system('cls')
@@ -1221,12 +1244,20 @@ def fn_eliminar_candidato():
 def fn_gestionar_candidaturas():
     print("W.I.P.")
 
-#OPCIÓN 8. EXPORTAR INFORMES
+#OPCIÓN 8. EXPORTAR INFORMES - JARA
 def fn_exportar_informes():
     print("W.I.P.")
 
-#MENÚ PRINCIPAL TALENTCONNECT
+#MENÚ PRINCIPAL TALENTCONNECT - JARA
 def fn_menu():
+
+    """
+    Muestra el menú principal de TalentConnect
+
+    Permite acceder a las diferentes funcionalidades
+    del programa, ejecuta la opción seleccionada que
+    llama a la funcíon correspondiente
+    """
 
     #Bucle infinito acceder al menú hasta que se pulse la opción de salir
     while True:
@@ -1291,10 +1322,10 @@ def fn_menu():
 
         input("\nPulsa ENTER para volver al menú principal...")
 
-'''#Ejecuta la función con los cantitados guardados
+'''#Ejecuta la función con los cantitados guardados - JARA
 fn_cargar_candidatos()'''
 
-#Abrir y leer el archivo.json
+#Abrir y leer el archivo.json - JARA
 with open("candidatos.json", "r") as x:
 
     #Todo lo que lea en el archivo.json estará en la siguiente variable
@@ -1308,5 +1339,5 @@ with open("candidatos.json", "r") as x:
     else:
         candidatos_lst = json.loads(contenido_str)
 
-#Ejecuta el programa
+#Ejecuta el programa - JARA
 fn_menu()
