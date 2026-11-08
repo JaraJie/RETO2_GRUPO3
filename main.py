@@ -729,9 +729,11 @@ def fn_modificar_candidato():
 #OPCIÓN 3. MOSTRAR TODOS LOS CANDIDATOS
 def fn_mostrar_candidatos():
 
+    #Comprobar si la lista de candidatos esta vacía
     if len(candidatos_lst) == 0:
             print("Aún no hay candidatos disponibles.")
 
+    #Si hay candidatos registrados muestra su información
     else:
         print("""
         -------------------------------
@@ -739,15 +741,20 @@ def fn_mostrar_candidatos():
         -------------------------------
         """)
 
+        #Inicializar el contador para numerar los candidatos
         candidato_int = 0
 
+        #Recorrer todos los candidatos almacenados en la lista
         for candidato_dict in candidatos_lst:
 
+            #Sumar uno al contador por cada candidato
             candidato_int += 1
 
+            #Mostrar número de candidato, va por orden de registro
             print("\nCANDIDATO Nº", candidato_int)
             print("-------------------------------")
 
+            #Recorrer el diccionario del candidato para mostrar sus datos
             for clave, valor in candidato_dict.items():
                 print(" •", clave," :", valor)
             print("-------------------------------")
