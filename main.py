@@ -681,6 +681,57 @@ def fn_filtrar_competencias():
 
     print("\n--- FILTRAR POR COMPETENCIAS TÉCNICAS ---")
 
+    competencias_disponibles_lst = []
+
+    for candidato_dict in candidatos_lst:
+
+        for competencia_str in candidato_dict["competencias_tecnicas"]:
+            competencias_disponibles_lst.append(competencia_str)
+
+    competencias_disponibles_set = set(competencias_disponibles_lst)
+
+    print("\nCOMPETENCIAS TÉCNICAS DISPONIBLES:")
+    print("------------------------------------------")
+    for competencia_str in competencias_disponibles_set:
+
+        print(" -", competencia_str)
+
+    while True:
+
+        competencia_introducida_str = input("\nIntroduzca la competencia técnica que desea buscar: ")
+
+        competencia_introducida_str = competencia_introducida_str.strip().title()
+
+        if competencia_introducida_str == "":
+            print("Tienes que introducir una competencia técnica.")
+
+        else:
+
+            if competencia_introducida_str not in competencias_disponibles_set:
+                print("No hay candidatos disponibles con esa competencia técnica.")
+
+            else:
+
+                candidatos_filtrados_lst = []
+
+                for candidato_dict in candidatos_lst:
+
+                    if competencia_introducida_str in candidato_dict["competencias_tecnicas"]:
+
+                        candidatos_filtrados_lst.append(candidato_dict)
+
+                print()
+                print("CANDIDATOS DISPONIBLES CON LA COMPETENCIA:", competencia_introducida_str)
+                print("------------------------------------------")
+
+                for candidato_dict in candidatos_filtrados_lst:
+
+                    for clave, valor in candidato_dict.items():
+
+                        print(" -", clave, ":", valor)
+                    print("-------------------------------")
+            break
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
     
