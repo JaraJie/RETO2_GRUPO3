@@ -631,26 +631,26 @@ def fn_filtrar_estudios():
     #Crear lista para candidatos filtrados
     candidatos_filtrados_lst = []
 
-    #Lista ordenada de niveles de estudios
-    estudios_lst = [
-        "Sin estudios",
-        "ESO",
-        "Bachillerato",
-        "FP Medio",
-        "FP Superior",
-        "Grado universitario",
-        "Master",
-        "Doctorado"
-    ]
+    #Lista de niveles de estudios y su valor correspondiente (bachillerato y fp medio se consideran el mismo nivel)
+    estudios_dict = {
+        "Sin estudios": 0,
+        "ESO": 1,
+        "Bachillerato": 2,
+        "FP Medio": 2,
+        "FP Superior": 3,
+        "Grado universitario": 4,
+        "Master": 5,
+        "Doctorado": 6
+    }
 
-    #Busca el nivel de estudios seleccionado dentro de la lista y obtiene su posición (0-7)
-    posicion_estudios_introducidos_int = estudios_lst.index(estudios_introducidos_str)
+    #Obtiene el valor correspondiente al nivel de estudios seleccionado
+    posicion_estudios_introducidos_int = estudios_dict[estudios_introducidos_str]
 
     #Recorrer candidatos dentro de la lista
     for candidato_dict in candidatos_lst:
 
-        #Busca los estudios del candidato en la lista para obtener su posición
-        posicion_estudios_candidato_int = estudios_lst.index(candidato_dict["estudios"])
+        #Obtiene el valor correspondiente a los estudios del candidato
+        posicion_estudios_candidato_int = estudios_dict[candidato_dict["estudios"]]
 
         #Comprueba si los estudios del candidato son iguales o superiores
         if posicion_estudios_candidato_int >= posicion_estudios_introducidos_int:
