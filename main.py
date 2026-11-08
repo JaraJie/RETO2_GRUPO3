@@ -1292,9 +1292,9 @@ def fn_exportar_informes():
                 
             x.write("------------------------------------------\n")
 
-    #Mostrar mensaje de que los informes se han exportado correctamente
-    print("--- INFORMES EXPORTADOS CORRECTAMENTE ---")
-    print("El archivo informes.txt se ha creado correctamente.")
+        #Mostrar mensaje de que los informes se han exportado correctamente
+        print("--- INFORMES EXPORTADOS CORRECTAMENTE ---")
+        print("El archivo informes.txt se ha creado correctamente.")
 
 #MENÚ PRINCIPAL TALENTCONNECT - JARA
 def fn_menu():
