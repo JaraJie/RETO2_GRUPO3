@@ -8,6 +8,12 @@ candidatos_lst = []
 #FUNCIÓN PARA GUARDAR CANDIDATOS EN JSON
 def fn_guardar_candidatos():
 
+    """
+    Guardar la lista de candidatos en un archivo JSON
+
+    Almacenar los datos de candidatos_lst en candidatos.json
+    """
+
     #Abrir archivo.json y escribir la lista de candidatos
     with open("candidatos.json", "w") as x:
         json.dump(candidatos_lst, x, indent=4)
@@ -16,6 +22,13 @@ def fn_guardar_candidatos():
 
 #FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON
 def fn_cargar_candidatos():
+
+    """
+    Cargar los candidatos almacenados en el archivo JSON
+
+    Leer el contenido de candidatos.json y cargar los datos
+    para usarlos durante la ejecución del programa
+    """
 
     #Abrir y leer el archivo.json
     with open("candidatos.json", "r") as x:
@@ -34,6 +47,19 @@ def fn_cargar_candidatos():
 
 #Función para validar DNI
 def fn_validar_dni(dni_validar_str):
+
+    """
+    Valida el formato del DNI y comprueba que no esté registrado
+
+    Elimina espacios exteriores y hace que la letra este
+    en mayúsculas
+
+    Argumentos:
+        dni_validar_str (str): DNI introducido por el usuario
+
+    Returns:
+        str: devuelve el DNI corregido
+    """
 
     #Eliminar espacios (inicio/final) y convertir la letra en mayúscula
     dni_validar_str = dni_validar_str.strip().upper()
@@ -69,6 +95,20 @@ def fn_validar_dni(dni_validar_str):
 #Función limpiar y validar nombre
 def fn_limpiar_nombre(nombre_validar_str):
 
+    """
+    Limpia y valida el nombre del candidato
+
+    Elimina espacios exteriores, hace que la primera letra
+    de cada palabra sea mayúscula y permite nombres compuestos
+    separados por espacios
+
+    Argumentos:
+        nombre_validar_str (str): Nombre introducido
+
+    Returns:
+        str: devuelve el nombre corregido
+    """
+    
     #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     nombre_validar_str = nombre_validar_str.strip().title()
 
@@ -88,6 +128,19 @@ def fn_limpiar_nombre(nombre_validar_str):
 #Función limpiar y validar apellidos
 def fn_limpiar_apellidos(apellidos_validar_str):
 
+    """
+    Limpia y valida los apellidos del candidato
+
+    Elimina espacios exteriores, hace que la primera letra
+    de cada palabra sea mayúscula y permite apellidos compuestos
+
+    Argumentos:
+        apellidos_validar_str (str): Apellidos introducidos
+
+    Returns:
+        str: devuelve los apellidos corregido
+    """
+
     #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     apellidos_validar_str = apellidos_validar_str.strip().title()
 
@@ -105,6 +158,17 @@ def fn_limpiar_apellidos(apellidos_validar_str):
 
 #Función para validar edad
 def fn_validar_edad (edad_validar_str):
+
+    """
+    Valida la edad del candidato y comprueba que sea igual
+    o superior a 18 años
+
+    Argumentos:
+        edad_validar_str (str): Edad introducida por el usuario
+
+    Returns:
+        int: devuelve la edad convertida en integer
+    """
 
     #Eliminar espacios (inicio/final)
     edad_validar_str = edad_validar_str.strip()
@@ -132,6 +196,19 @@ def fn_validar_edad (edad_validar_str):
 #Función para limpiar y validar ciudad
 def fn_limpiar_ciudad(ciudad_validar_str):
 
+    """
+    Limpia y valida la ciudad de residencia del candidato
+
+    Elimina espacios exteriores, hace que la primera letra
+    de cada palabra sea mayúscula y permite guiones
+
+    Argumentos:
+        ciudad_validar_str (str): Ciudad introducida
+
+    Returns:
+        str: devuelve la ciudad corregida
+    """
+    
     #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     ciudad_validar_str = ciudad_validar_str.strip().title()
 
@@ -149,6 +226,19 @@ def fn_limpiar_ciudad(ciudad_validar_str):
 
 #Función para limpiar y validar email
 def fn_validar_email(email_validar_str):
+    
+    """
+    Valida el correo electrónico del candidato
+
+    Comprueba si contiene un único @, no contiene espacios
+    y termina con .es o .com
+
+    Argumentos:
+        email_validar_str (str): Correo electrónico introducido
+
+    Returns:
+        str: devuelve el email
+    """
 
     #Elimina espacios (inicio/final) y convierte todo en minúsculas
     email_validar_str = email_validar_str.strip().lower()
@@ -187,6 +277,18 @@ def fn_validar_email(email_validar_str):
 
 #Función para validar teléfono
 def fn_validar_telefono(telefono_validar_str):
+     
+    """
+    Valida el número de teléfono del candidato
+
+    Comprueba que contenga exactamente 9 caracteres númericos
+
+    Argumentos:
+        telefono_validar_str (str): Teléfono introducid
+
+    Returns:
+        str: devuelve el telefono
+    """
 
     #Elimina espacios (inicio/final)
     telefono_validar_str = telefono_validar_str.strip()
@@ -210,6 +312,16 @@ def fn_validar_telefono(telefono_validar_str):
 
 #Función para seleccionar nivel de estudios
 def fn_validar_estudios():
+     
+    """
+    Solicita y valida el nivel de estudios del candidato
+
+    Muestra las opciones disponibles y repite la solicitud
+    hasta que el usuario seleccione una opción válida
+
+    Returns:
+        str: devuelve el nivel de estudios seleccionado
+    """
 
     #Muestra las opciones disponibles
     print("""
@@ -267,6 +379,19 @@ def fn_validar_estudios():
 #Función para validar titulación
 def fn_validar_titulacion(titulacion_validar_str):
 
+    """
+    Limpia y valida la titulación académica del candidato.
+
+    Elimina espacios exteriores y hace que la primera letra
+    de cada palabra sea mayúscula.
+
+    Argumentos:
+        titulacion_validar_str (str): Titulación introducida
+
+    Returns:
+        str: devuelve la titulación corregida
+    """
+
     #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     titulacion_validar_str = titulacion_validar_str.strip().title()
 
@@ -279,6 +404,19 @@ def fn_validar_titulacion(titulacion_validar_str):
     
 #Función para validar experiencia
 def fn_validar_experiencia(experiencia_validar_str):
+
+    """
+    Valida los años de experiencia laboral del candidato
+
+    Comprueba que el valor sea un número entero igual o
+    superior a cero
+
+    Argumentos:
+        experiencia_validar_str (str): Años de experiencia
+
+    Returns:
+        int: devuelve la experiencia convertida en integer
+    """
 
     #Elimina espacios (inicio/final)
     experiencia_validar_str = experiencia_validar_str.strip()
@@ -301,6 +439,19 @@ def fn_validar_experiencia(experiencia_validar_str):
 #Función para validar puesto solicitado
 def fn_validar_puesto(puesto_validar_str):
 
+    """
+    Limpia y valida el puesto solicitado por el candidato
+
+    Elimina espacios exteriores y hace que la primera letra
+    de cada palabra sea mayúscula
+
+    Argumentos:
+        puesto_validar_str (str): Puesto solicitado
+
+    Returns:
+        str: devuelve el puesto corregido
+    """
+
     #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
     puesto_validar_str = puesto_validar_str.strip().title()
 
@@ -313,6 +464,16 @@ def fn_validar_puesto(puesto_validar_str):
 
 #Función para introducir competencias técnicas
 def fn_introducir_competencias():
+
+    """
+    Solicita las competencias técnicas del candidato
+
+    Permite introducir varias competencias, evita duplicados
+    y finaliza cuando el usuario escribe FIN
+
+    Returns:
+        lst: devuelve una lista de competencias técnicas introducidas
+    """
 
     #Crear una lista para las competencias
     competencias_lst = []
@@ -355,6 +516,16 @@ def fn_introducir_competencias():
 #Función para introducir idiomas
 def fn_introducir_idiomas():
 
+    """
+    Solicita los idiomas del candidato
+
+    Permite introducir varios idiomas, evita duplicados
+    y finaliza cuando el usuario escribe FIN
+
+    Returns:
+        lst: devuelve una lista de idiomas introducidas
+    """
+
     #Crear una lista para los idiomas
     idiomas_lst = []
 
@@ -395,6 +566,14 @@ def fn_introducir_idiomas():
 
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
+    
+    """
+    Registra un nuevo candidato a TalentConnect
+
+    Solicita los datos personales y profesionales,
+    valida la información introducida y almacena
+    al candidato en la lista y en el archivo JSON
+    """
 
     os.system('cls')
 
