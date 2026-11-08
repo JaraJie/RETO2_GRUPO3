@@ -35,7 +35,7 @@
         "telefono": "012345678",
         "estudios": "FP Superior",
         "titulacion": "Fp En Dam",
-        "experiencia": 0,
+        "experiencia": 1,
         "puesto_solicitado": "Programador Junior",
         "competencias_tecnicas": [
             "Python",
@@ -46,6 +46,27 @@
             "Castellano",
             "Ingles",
             "Frances"
+        ],
+        "estado": "En revision"
+    },
+    {
+        "dni": "12345678C",
+        "nombre": "Laura",
+        "apellidos": "Zabaleta Gonzalez",
+        "edad": 19,
+        "ciudad": "Lezo",
+        "email": "laura@gmail.com",
+        "telefono": "987654321",
+        "estudios": "Bachillerato",
+        "titulacion": "Bachillerato Informatico",
+        "experiencia": 0,
+        "puesto_solicitado": "Programador Junior",
+        "competencias_tecnicas": [
+            "Html",
+            "Css"
+        ],
+        "idiomas": [
+            "Castellano"
         ],
         "estado": "En revision"
     }
