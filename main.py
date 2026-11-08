@@ -1257,10 +1257,10 @@ def fn_exportar_informes():
 
         with open("informes.txt", "w") as x:
 
-            x.write("------------------------------------------")
-            x.write("        INFORME DE CANDIDATOS")
-            x.write("              TALENTCONNECT")
-            x.write("------------------------------------------")
+            x.write("------------------------------------------\n")
+            x.write("        INFORME DE CANDIDATOS\n")
+            x.write("              TALENTCONNECT\n")
+            x.write("------------------------------------------\n")
 
             candidato_int = 0
 
@@ -1268,13 +1268,13 @@ def fn_exportar_informes():
 
                 candidato_int += 1
 
-                x.write("CANDIDATO Nº " + str(candidato_int))
-                x.write("------------------------------------------")
+                x.write("\nCANDIDATO NUMERO " + str(candidato_int) + "\n")
+                x.write("------------------------------------------\n")
 
                 for clave, valor in candidato_dict.items():
-                    x.write(str(clave) + ": " + str(valor))
+                    x.write(str(clave) + ": " + str(valor) + "\n")
                 
-            x.write("------------------------------------------")
+            x.write("------------------------------------------\n")
 
     print("--- INFORMES EXPORTADOS CORRECTAMENTE ---")
     print("El archivo informes.txt se ha creado correctamente.")

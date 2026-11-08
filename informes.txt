@@ -1,1 +1,56 @@
-------------------------------------------        INFORME DE CANDIDATOS              TALENTCONNECT------------------------------------------CANDIDATO Nº 1------------------------------------------dni: 12345678Anombre: Maria Joseapellidos: Garcia Lopezedad: 30ciudad: San Sebastian - Donostiaemail: josemari@gmail.comtelefono: 123456789estudios: Mastertitulacion: Master En Programacionexperiencia: 6puesto_solicitado: Programador Seniorcompetencias_tecnicas: ['Python', 'Nava', 'Css', 'Html', 'Sql', 'C++']idiomas: ['Castellano', 'Ingles']estado: En revisionCANDIDATO Nº 2------------------------------------------dni: 12345678Bnombre: Mariaapellidos: Rendondo Garciaedad: 22ciudad: Lasarteemail: maria@gmail.comtelefono: 012345678estudios: FP Superiortitulacion: Fp En Damexperiencia: 1puesto_solicitado: Programador Juniorcompetencias_tecnicas: ['Python', 'Html', 'Css']idiomas: ['Castellano', 'Ingles', 'Frances']estado: En revisionCANDIDATO Nº 3------------------------------------------dni: 12345678Cnombre: Lauraapellidos: Zabaleta Gonzalezedad: 19ciudad: Lezoemail: laura@gmail.comtelefono: 987654321estudios: FP Mediotitulacion: Fp Informaticoexperiencia: 0puesto_solicitado: Programador Juniorcompetencias_tecnicas: ['Html', 'Css']idiomas: ['Castellano']estado: En revision------------------------------------------
+------------------------------------------
+        INFORME DE CANDIDATOS
+              TALENTCONNECT
+------------------------------------------
+
+CANDIDATO NUMERO 1
+------------------------------------------
+dni: 12345678A
+nombre: Maria Jose
+apellidos: Garcia Lopez
+edad: 30
+ciudad: San Sebastian - Donostia
+email: josemari@gmail.com
+telefono: 123456789
+estudios: Master
+titulacion: Master En Programacion
+experiencia: 6
+puesto_solicitado: Programador Senior
+competencias_tecnicas: ['Python', 'Nava', 'Css', 'Html', 'Sql', 'C++']
+idiomas: ['Castellano', 'Ingles']
+estado: En revision
+
+CANDIDATO NUMERO 2
+------------------------------------------
+dni: 12345678B
+nombre: Maria
+apellidos: Rendondo Garcia
+edad: 22
+ciudad: Lasarte
+email: maria@gmail.com
+telefono: 012345678
+estudios: FP Superior
+titulacion: Fp En Dam
+experiencia: 1
+puesto_solicitado: Programador Junior
+competencias_tecnicas: ['Python', 'Html', 'Css']
+idiomas: ['Castellano', 'Ingles', 'Frances']
+estado: En revision
+
+CANDIDATO NUMERO 3
+------------------------------------------
+dni: 12345678C
+nombre: Laura
+apellidos: Zabaleta Gonzalez
+edad: 19
+ciudad: Lezo
+email: laura@gmail.com
+telefono: 987654321
+estudios: FP Medio
+titulacion: Fp Informatico
+experiencia: 0
+puesto_solicitado: Programador Junior
+competencias_tecnicas: ['Html', 'Css']
+idiomas: ['Castellano']
+estado: En revision
+------------------------------------------
