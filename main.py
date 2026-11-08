@@ -815,7 +815,7 @@ def fn_menu():
 
             fn_guardar_candidatos()
 
-            print("Saliendo del programa...")
+            print("\nSaliendo del programa...")
             break
 
         else:
