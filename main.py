@@ -724,7 +724,160 @@ def fn_registrar_candidato():
 
 #OPCIÓN 2. MODIFICAR CANDIDATO
 def fn_modificar_candidato():
-    print(":)")
+
+    if len(candidatos_lst) == 0:
+        print("Aún no hay candidatos disponibles.")
+
+    else:
+    
+        dni_str = input("Introduce el DNI del candidato que deseas modificar: ")
+
+        dni_str = dni_str.strip().upper()
+
+        candidato_encontrado_bool = False
+
+        for candidato_dict in candidatos_lst:
+
+            if candidato_dict["dni"] == dni_str:
+
+                candidato_encontrado_bool = True
+
+                print("""
+                -------------------------------
+                    MODIFICAR CANDIDATO
+                -------------------------------
+                """)
+
+                print("Datos disponibles:")
+                print("1. Nombre:", candidato_dict["nombre"])
+                print("2. Apellidos:", candidato_dict["apellidos"])
+                print("3. Edad:", candidato_dict["edad"])
+                print("4. Ciudad:", candidato_dict["ciudad"])
+                print("5. Email:", candidato_dict["email"])
+                print("6. Teléfono:", candidato_dict["telefono"])
+                print("7. Estudios:", candidato_dict["estudios"])
+                print("8. Titulación:", candidato_dict["titulacion"])
+                print("9. Experiencia:", candidato_dict["experiencia"])
+                print("10. Puesto solicitado:", candidato_dict["puesto_solicitado"])
+                print("11. Competencias técnicas:", candidato_dict["competencias_tecnicas"])
+                print("12. Idiomas:", candidato_dict["idiomas"])
+                print("0. Guardar y salir")
+
+                while True:
+
+                    dato_modificar_str = input("¿Qué dato deseas modificar? ")
+
+                    if dato_modificar_str == "1":
+                        nombre_nuevo_str = input("Nuevo nombre: ")
+                        nombre_nuevo_str = fn_limpiar_nombre(nombre_nuevo_str)
+
+                        while nombre_nuevo_str == False:
+                            nombre_nuevo_str = input("Nuevo nombre: ")
+                            nombre_nuevo_str = fn_limpiar_nombre(nombre_nuevo_str)
+
+                        candidato_dict["nombre"] = nombre_nuevo_str
+
+                    elif dato_modificar_str == "2":
+                        apellidos_nuevos_str = input("Nuevos apellidos: ")
+                        apellidos_nuevos_str = fn_limpiar_apellidos(apellidos_nuevos_str)
+
+                        while apellidos_nuevos_str == False:
+                            apellidos_nuevos_str = input("Nuevos apellidos: ")
+                            apellidos_nuevos_str = fn_limpiar_apellidos(apellidos_nuevos_str)
+
+                        candidato_dict["apellidos"] = apellidos_nuevos_str
+
+                    elif dato_modificar_str == "3":
+                        edad_nueva_int = input("Nueva edad: ")
+                        edad_nueva_int = fn_validar_edad(edad_nueva_int)
+
+                        while edad_nueva_int == False:
+                            edad_nueva_int = input("Nueva edad: ")
+                            edad_nueva_int = fn_validar_edad(edad_nueva_int)
+
+                        candidato_dict["edad"] = edad_nueva_int
+
+                    elif dato_modificar_str == "4":
+                        ciudad_nueva_str = input("Nueva ciudad: ")
+                        ciudad_nueva_str = fn_limpiar_ciudad(ciudad_nueva_str)
+
+                        while ciudad_nueva_str == False:
+                            ciudad_nueva_str = input("Nueva ciudad: ")
+                            ciudad_nueva_str = fn_limpiar_ciudad(ciudad_nueva_str)
+
+                        candidato_dict["ciudad"] = ciudad_nueva_str
+
+                    elif dato_modificar_str == "5":
+                        email_nuevo_str = input("Nuevo email: ")
+                        email_nuevo_str = fn_validar_email(email_nuevo_str)
+
+                        while email_nuevo_str == False:
+                            email_nuevo_str = input("Nuevo email: ")
+                            email_nuevo_str = fn_validar_email(email_nuevo_str)
+
+                        candidato_dict["email"] = email_nuevo_str
+
+                    elif dato_modificar_str == "6":
+                        telefono_nuevo_str = input("Nuevo teléfono: ")
+                        telefono_nuevo_str = fn_validar_telefono(telefono_nuevo_str)
+
+                        while telefono_nuevo_str == False:
+                            telefono_nuevo_str = input("Nuevo teléfono: ")
+                            telefono_nuevo_str = fn_validar_telefono(telefono_nuevo_str)
+
+                        candidato_dict["telefono"] = telefono_nuevo_str
+
+                    elif dato_modificar_str == "7":
+                        candidato_dict["estudios"] = fn_validar_estudios()
+
+                    elif dato_modificar_str == "8":
+                        titulacion_nueva_str = input("Nueva titulación: ")
+                        titulacion_nueva_str = fn_validar_titulacion(titulacion_nueva_str)
+
+                        while titulacion_nueva_str == False:
+                            titulacion_nueva_str = input("Nueva titulación: ")
+                            titulacion_nueva_str = fn_validar_titulacion(titulacion_nueva_str)
+
+                        candidato_dict["titulacion"] = titulacion_nueva_str
+
+                    elif dato_modificar_str == "9":
+                        experiencia_nueva_int = input("Nuevos años de experiencia: ")
+                        experiencia_nueva_int = fn_validar_experiencia(experiencia_nueva_int)
+
+                        while experiencia_nueva_int is False:
+                            experiencia_nueva_int = input("Nuevos años de experiencia: ")
+                            experiencia_nueva_int = fn_validar_experiencia(experiencia_nueva_int)
+
+                        candidato_dict["experiencia"] = experiencia_nueva_int
+
+                    elif dato_modificar_str == "10":
+                        puesto_nuevo_str = input("Nuevo puesto solicitado: ")
+                        puesto_nuevo_str = fn_validar_puesto(puesto_nuevo_str)
+
+                        while puesto_nuevo_str == False:
+                            puesto_nuevo_str = input("Nuevo puesto solicitado: ")
+                            puesto_nuevo_str = fn_validar_puesto(puesto_nuevo_str)
+
+                        candidato_dict["puesto_solicitado"] = puesto_nuevo_str
+
+                    elif dato_modificar_str == "11":
+                        print("AVISO: Se eliminarán todas las competencias anteriores.")
+                        candidato_dict["competencias_tecnicas"] = fn_introducir_competencias()
+
+                    elif dato_modificar_str == "12":
+                        print("AVISO: Se eliminarán todos los idiomas anteriores.")
+                        candidato_dict["idiomas"] = fn_introducir_idiomas()
+
+                    elif dato_modificar_str == "0":
+                        fn_guardar_candidatos()
+                        break
+
+                    else:
+                        print("Opción no válida.")
+
+        if candidato_encontrado_bool == False:
+            print("No se ha encontrado ningún candidato con ese DNI.")
+            print("Comprueba que has introducido correctamente el DNI (8 números y 1 letra).")
 
 #OPCIÓN 3. MOSTRAR TODOS LOS CANDIDATOS
 def fn_mostrar_candidatos():
