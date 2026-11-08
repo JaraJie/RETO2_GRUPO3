@@ -565,7 +565,7 @@ def fn_introducir_idiomas():
 #Función para filtrar candidato por experiencia
 def fn_filtrar_experiencia():
 
-    print("\n---FILTRAR POR EXPERIENCIA---")
+    print("\n--- FILTRAR POR EXPERIENCIA ---")
 
     #Bucle infinito hasta que el usuario introduzca un número valido
     while True:
@@ -617,9 +617,69 @@ def fn_filtrar_experiencia():
                     for clave, valor in candidato_dict.items():
 
                         print(" -", clave, ":", valor)
-
                     print("-------------------------------")
             break #Sale del bucle
+
+#Función para filtrar candidatos por estudios
+def fn_filtrar_estudios():
+
+    print("\n---FILTRAR POR ESTUDIOS---")
+
+    #Solicitar y validar el nivel de estudios
+    estudios_introducidos_str = fn_validar_estudios()
+
+    #Crear lista para candidatos filtrados
+    candidatos_filtrados_lst = []
+
+    #Lista ordenada de niveles de estudios
+    estudios_lst = [
+        "Sin estudios",
+        "ESO",
+        "Bachillerato",
+        "FP Medio",
+        "FP Superior",
+        "Grado universitario",
+        "Master",
+        "Doctorado"
+    ]
+
+    #Busca el nivel de estudios seleccionado dentro de la lista y obtiene su posición (0-7)
+    posicion_estudios_introducidos_int = estudios_lst.index(estudios_introducidos_str)
+
+    #Recorrer candidatos dentro de la lista
+    for candidato_dict in candidatos_lst:
+
+        #Busca los estudios del candidato en la lista para obtener su posición
+        posicion_estudios_candidato_int = estudios_lst.index(candidato_dict["estudios"])
+
+        #Comprueba si los estudios del candidato son iguales o superiores
+        if posicion_estudios_candidato_int >= posicion_estudios_introducidos_int:
+
+            #Añade los candidatos a la lista
+            candidatos_filtrados_lst.append(candidato_dict)
+
+    #Comprueba si hay candidatos disponibles
+    if len(candidatos_filtrados_lst) == 0:
+        print("No hay candidatos disponibles con esos estudios o superiores.")
+
+    else:
+
+        #Mostrar los candidatos disponibles con estudios igual o superiores al seleccionado
+        print()
+        print("CANDIDATOS CON ESTUDIOS IGUALES O SUPERIORES A:", estudios_introducidos_str)
+        print("------------------------------------------")
+
+        for candidato_dict in candidatos_filtrados_lst:
+
+            for clave, valor in candidato_dict.items():
+
+                print(" -", clave, ":", valor)
+            print("-------------------------------")
+
+#Función para filtrar candidato por competencias
+def fn_filtrar_competencias():
+
+    print("\n--- FILTRAR POR COMPETENCIAS TÉCNICAS ---")
 
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
@@ -1076,9 +1136,11 @@ def fn_filtrar_candidatos():
             elif filtro_seleccionado_str == "3":
                 fn_filtrar_competencias()
 
+            #Salir del bucle
             elif filtro_seleccionado_str == "0":
                 break
 
+            #Volver a preguntar input
             else:
                 print("Opción no disponible.")
 
