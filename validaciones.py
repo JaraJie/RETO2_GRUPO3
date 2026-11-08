@@ -1,0 +1,518 @@
+#Función para validar DNI
+def fn_validar_dni(dni_validar_str):
+
+    """
+    Valida el formato del DNI y comprueba que no esté registrado
+
+    Elimina espacios exteriores y hace que la letra este
+    en mayúsculas
+
+    Argumentos:
+        dni_validar_str (str): DNI introducido por el usuario
+
+    Returns:
+        str: devuelve el DNI corregido
+    """
+
+    #Eliminar espacios (inicio/final) y convertir la letra en mayúscula
+    dni_validar_str = dni_validar_str.strip().upper()
+
+    #Comprobar que no deja el espacio en blanco
+    if dni_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    #Comprobar que el DNI tiene 9 caracteres
+    if len(dni_validar_str) != 9:
+        print("El DNI contiene 9 caracteres.")
+        return False
+
+    #Comprobar que los 8 primeros son números
+    if not dni_validar_str[:8].isdigit():
+        print("El DNI debe tener 8 dígitos.")
+        return False
+
+    #Comprobar que el último caracter es una letra
+    if not dni_validar_str[8].isalpha():
+        print("El DNI debe tener una letra al final.")
+        return False
+
+    #Comprobar que el DNI no este registrado anteriormente
+    for candidato_str in candidatos_lst:
+        if candidato_str["dni"] == dni_validar_str:
+            print("Este DNI ya está registrado. Introduce otro.")
+            return False
+    
+    return dni_validar_str
+
+#Función limpiar y validar nombre
+def fn_limpiar_nombre(nombre_validar_str):
+
+    """
+    Limpia y valida el nombre del candidato
+
+    Elimina espacios exteriores, hace que la primera letra
+    de cada palabra sea mayúscula y permite nombres compuestos
+    separados por espacios
+
+    Argumentos:
+        nombre_validar_str (str): Nombre introducido
+
+    Returns:
+        str: devuelve el nombre corregido
+    """
+    
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+    nombre_validar_str = nombre_validar_str.strip().title()
+
+    #Comprobar que no deja el espacio en blanco
+    if nombre_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    #Comprobar que el nombre solo contiene letras, permitiendo espacios para los nombres compuestos
+    if not nombre_validar_str.replace(" ","").isalpha():
+        print("El nombre solo puede contener letras.")
+        return False
+
+    return nombre_validar_str
+
+
+#Función limpiar y validar apellidos
+def fn_limpiar_apellidos(apellidos_validar_str):
+
+    """
+    Limpia y valida los apellidos del candidato
+
+    Elimina espacios exteriores, hace que la primera letra
+    de cada palabra sea mayúscula y permite apellidos compuestos
+
+    Argumentos:
+        apellidos_validar_str (str): Apellidos introducidos
+
+    Returns:
+        str: devuelve los apellidos corregido
+    """
+
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+    apellidos_validar_str = apellidos_validar_str.strip().title()
+
+    #Comprobar que no deja el espacio en blanco
+    if apellidos_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    #Comprobar que los apellidos solo contienen letras, permitiendo espacios
+    if not apellidos_validar_str.replace(" ","").isalpha():
+        print("Los apellidos solo puede contener letras.")
+        return False
+
+    return apellidos_validar_str
+
+#Función para validar edad
+def fn_validar_edad (edad_validar_str):
+
+    """
+    Valida la edad del candidato y comprueba que sea igual
+    o superior a 18 años
+
+    Argumentos:
+        edad_validar_str (str): Edad introducida por el usuario
+
+    Returns:
+        int: devuelve la edad convertida en integer
+    """
+
+    #Eliminar espacios (inicio/final)
+    edad_validar_str = edad_validar_str.strip()
+
+    #Comprobar que no deja el espacio en blanco
+    if edad_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    #Comprobar que es un número
+    if not edad_validar_str.isdigit():
+        print("La edad debe ser un número entero y positivo.")
+        return False
+
+    #Convertir la edad de texto a número
+    edad_validar_int = int(edad_validar_str)
+
+    #Comprobar que sea mayor de 18 años
+    if edad_validar_int < 18:
+        print("El candidato debe tener al menos 18 años.")
+        return False
+
+    return edad_validar_int
+
+#Función para limpiar y validar ciudad
+def fn_limpiar_ciudad(ciudad_validar_str):
+
+    """
+    Limpia y valida la ciudad de residencia del candidato
+
+    Elimina espacios exteriores, hace que la primera letra
+    de cada palabra sea mayúscula y permite guiones
+
+    Argumentos:
+        ciudad_validar_str (str): Ciudad introducida
+
+    Returns:
+        str: devuelve la ciudad corregida
+    """
+    
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+    ciudad_validar_str = ciudad_validar_str.strip().title()
+
+    #Comprobar que no deja el espacio en blanco
+    if ciudad_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    #Comprobar que la ciudad contienen letras, permitiendo espacios y guiones
+    if not ciudad_validar_str.replace(" ","").replace("-","").isalpha():
+        print("La ciudad solo puede contener letras.")
+        return False
+
+    return ciudad_validar_str
+
+#Función para limpiar y validar email
+def fn_validar_email(email_validar_str):
+    
+    """
+    Valida el correo electrónico del candidato
+
+    Comprueba si contiene un único @, no contiene espacios
+    y termina con .es o .com
+
+    Argumentos:
+        email_validar_str (str): Correo electrónico introducido
+
+    Returns:
+        str: devuelve el email
+    """
+
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas
+    email_validar_str = email_validar_str.strip().lower()
+
+    #Comprobar que no deja el espacio en blanco
+    if email_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    #Comprobar que contiene solo 1 @
+    if email_validar_str.count("@") != 1:
+        print("El email debe contener una única @.")
+        return False
+
+    #Comprobar que no tiene espacios (dentro del email)
+    if " " in email_validar_str:
+        print("El email no puede contener espacios.")
+        return False
+
+    #Comprobar que el email termina con .es o .com
+    if not email_validar_str.endswith(".es") and not email_validar_str.endswith(".com"):
+        print("El email debe terminar con '.es' o '.com'")
+        return False
+
+    #Comprobar que el email no empieza con @
+    if email_validar_str.startswith("@"):
+        print("El email debe contener un usuario antes de la @.")
+        return False
+
+    #Comprobar que el emial no termina con @.es ni @.com
+    if email_validar_str.endswith("@.es") or email_validar_str.endswith("@.com"):
+        print("El email debe contener un dominio.")
+        return False
+
+    return email_validar_str
+
+#Función para validar teléfono
+def fn_validar_telefono(telefono_validar_str):
+     
+    """
+    Valida el número de teléfono del candidato
+
+    Comprueba que contenga exactamente 9 caracteres númericos
+
+    Argumentos:
+        telefono_validar_str (str): Teléfono introducid
+
+    Returns:
+        str: devuelve el telefono
+    """
+
+    #Elimina espacios (inicio/final)
+    telefono_validar_str = telefono_validar_str.strip()
+
+    #Comprobar que no deja el espacio en blanco
+    if telefono_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    #Comprobar que el telefono tiene 9 caracteres
+    if len(telefono_validar_str) != 9:
+        print("El teléfono debe contener 9 dígitos.")
+        return False
+
+    #Comprobar si son números
+    if not telefono_validar_str.isdigit():
+        print("El teléfono solo puede contener números.")
+        return False
+
+    return telefono_validar_str
+
+#Función para seleccionar nivel de estudios
+def fn_validar_estudios():
+     
+    """
+    Solicita y valida el nivel de estudios del candidato
+
+    Muestra las opciones disponibles y repite la solicitud
+    hasta que el usuario seleccione una opción válida
+
+    Returns:
+        str: devuelve el nivel de estudios seleccionado
+    """
+
+    #Muestra las opciones disponibles
+    print("""
+              NIVEL DE ESTUDIOS
+        --------------------------------
+        1. Sin estudios
+        2. ESO
+        3. Bachillerato
+        4. FP Medio
+        5. FP Superior
+        6. Grado universitario
+        7. Máster
+        8. Doctorado
+        --------------------------------
+        """)
+
+    #En caso de que el usuario no intruduzca una opción valida continuará dentro del bucle
+    while True:
+
+        #Solicitar opción al candidato
+        estudios_validar_str = input("\nSelecciona tu nivel de estudios (1-8): ")
+
+        #Dependiendo de lo que se escoja guardara diferentes niveles
+        if estudios_validar_str == "1":
+            estudios_validar_str = "Sin estudios"
+
+        elif estudios_validar_str == "2":
+            estudios_validar_str = "ESO"
+
+        elif estudios_validar_str == "3":
+            estudios_validar_str = "Bachillerato"
+
+        elif estudios_validar_str == "4":
+            estudios_validar_str = "FP Medio"
+
+        elif estudios_validar_str == "5":
+            estudios_validar_str = "FP Superior"
+
+        elif estudios_validar_str == "6":
+            estudios_validar_str = "Grado universitario"
+
+        elif estudios_validar_str == "7":
+            estudios_validar_str = "Master"
+
+        elif estudios_validar_str == "8":
+            estudios_validar_str = "Doctorado"
+
+        #En caso de que no escoja una opción valida continuará dentro del bucle
+        else:
+            print("Opción no válida. Introduce un número del 1 al 8.")
+            continue
+
+        return estudios_validar_str
+
+#Función para validar titulación
+def fn_validar_titulacion(titulacion_validar_str):
+
+    """
+    Limpia y valida la titulación académica del candidato.
+
+    Elimina espacios exteriores y hace que la primera letra
+    de cada palabra sea mayúscula.
+
+    Argumentos:
+        titulacion_validar_str (str): Titulación introducida
+
+    Returns:
+        str: devuelve la titulación corregida
+    """
+
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+    titulacion_validar_str = titulacion_validar_str.strip().title()
+
+    #Comprobar que no deja el espacio en blanco
+    if titulacion_validar_str == "":
+            print("Tienes que rellenar este campo.")
+            return False
+
+    return titulacion_validar_str
+    
+#Función para validar experiencia
+def fn_validar_experiencia(experiencia_validar_str):
+
+    """
+    Valida los años de experiencia laboral del candidato
+
+    Comprueba que el valor sea un número entero igual o
+    superior a cero
+
+    Argumentos:
+        experiencia_validar_str (str): Años de experiencia
+
+    Returns:
+        int: devuelve la experiencia convertida en integer
+    """
+
+    #Elimina espacios (inicio/final)
+    experiencia_validar_str = experiencia_validar_str.strip()
+
+    #Comprobar que no deja el espacio en blanco
+    if experiencia_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    #Comprobar que introduce un número entero y positivo
+    if not experiencia_validar_str.isdigit():
+        print("La experiencia debe ser un número entero igual o superior a 0.")
+        return False
+
+    #Convertir la experiencia de texto a número
+    experiencia_validar_int = int(experiencia_validar_str)
+
+    return experiencia_validar_int
+
+#Función para validar puesto solicitado
+def fn_validar_puesto(puesto_validar_str):
+
+    """
+    Limpia y valida el puesto solicitado por el candidato
+
+    Elimina espacios exteriores y hace que la primera letra
+    de cada palabra sea mayúscula
+
+    Argumentos:
+        puesto_validar_str (str): Puesto solicitado
+
+    Returns:
+        str: devuelve el puesto corregido
+    """
+
+    #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+    puesto_validar_str = puesto_validar_str.strip().title()
+
+    #Comprobar que no deja el espacio en blanco
+    if puesto_validar_str == "":
+        print("Tienes que rellenar este campo.")
+        return False
+
+    return puesto_validar_str
+
+#Función para introducir competencias técnicas
+def fn_introducir_competencias():
+
+    """
+    Solicita las competencias técnicas del candidato
+
+    Permite introducir varias competencias, evita duplicados
+    y finaliza cuando el usuario escribe FIN
+
+    Returns:
+        lst: devuelve una lista de competencias técnicas introducidas
+    """
+
+    #Crear una lista para las competencias
+    competencias_lst = []
+
+    #Mostrar instrucciones
+    print("\nIntroduce las competencias técnicas.")
+    print("Al finalizar escriba 'FIN'.")
+
+    #Bucle infinito hasta que el usuario escriba fin
+    while True:
+
+        #solicitar competencias al candidato
+        competencia_str = input("\nCompentencia técnica: ")
+
+        #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+        competencia_str = competencia_str.strip().title()
+
+        #Comprobar que no deja el espacio en blanco
+        if competencia_str == "":
+            print("Tienes que rellenar este campo.")
+            continue
+
+        #En caso de que el usuario escriba fin y no hay competencias en la lista que le pida que escriba al menos una
+        if competencia_str == "Fin":
+            if len(competencias_lst) == 0:
+                print("Debes introducir al menos una competencia técnica.")
+                continue
+            break #Finalizar el bucle
+
+        #Comprobar si la competencia estaba en la lista
+        if competencia_str in competencias_lst:
+            print("Esa competencia ya está introducida.")
+            continue
+
+        #Añadir competencias escritas por el candidato a la lista
+        competencias_lst.append(competencia_str)
+
+    return competencias_lst
+
+#Función para introducir idiomas
+def fn_introducir_idiomas():
+
+    """
+    Solicita los idiomas del candidato
+
+    Permite introducir varios idiomas, evita duplicados
+    y finaliza cuando el usuario escribe FIN
+
+    Returns:
+        lst: devuelve una lista de idiomas introducidas
+    """
+
+    #Crear una lista para los idiomas
+    idiomas_lst = []
+
+    #Mostrar instrucciones
+    print("\nIntroduce los idiomas.")
+    print("Al finalizar escriba 'FIN'.")
+
+    #Bucle infinito hasta que el usuario escriba fin
+    while True:
+
+        #solicitar idiomas al candidato
+        idioma_str = input("\nIdioma: ")
+
+        #Elimina espacios (inicio/final) y convierte todo en minúsculas menos la primera letra de cada palabra
+        idioma_str = idioma_str.strip().title()
+
+        #Comprobar que no deja el espacio en blanco
+        if idioma_str == "":
+            print("Tienes que rellenar este campo.")
+            continue
+
+        #En caso de que el usuario escriba fin y no hay idiomas en la lista que le pida que escriba al menos una
+        if idioma_str == "Fin":
+            if len(idiomas_lst) == 0:
+                print("Debes introducir al menos un idioma.")
+                continue
+            break #Finalizar el bucle
+
+        #Comprobar si el idioma estaba en la lista
+        if idioma_str in idiomas_lst:
+            print("Ese idioma ya está introducido.")
+            continue
+
+        #Añadir idiomas introducidas por el candidato a la lista
+        idiomas_lst.append(idioma_str)
+
+    return idiomas_lst
