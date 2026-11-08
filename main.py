@@ -562,6 +562,65 @@ def fn_introducir_idiomas():
 
     return idiomas_lst
 
+#Función para filtrar candidato por experiencia
+def fn_filtrar_experiencia():
+
+    print("\n---FILTRAR POR EXPERIENCIA---")
+
+    #Bucle infinito hasta que el usuario introduzca un número valido
+    while True:
+
+        #Solicita años de experiencia
+        experiencia_introducida_str = input("\nIntroduzca los años de experiencia mínimos: ")
+
+        #Borrar espacios (inicio/final)
+        experiencia_introducida_str = experiencia_introducida_str.strip()
+
+        #Comprobar que el campo no este vaco
+        if experiencia_introducida_str == "":
+            print("Tienes que rellenar este campo.")
+
+        #Comprobar si la experiencia es un dígito numérico
+        elif not experiencia_introducida_str.isdigit():
+            print("La experiencia debe ser un número entero igual o superior a 0.")
+
+        else:
+
+            #Convierte la esperiencia de texto a número
+            experiencia_introducida_int = int(experiencia_introducida_str)
+
+            #Crear lista para candidatos filtrados
+            candidatos_filtrados_lst = []
+
+            #Recorrer candidatos dentro de la lista
+            for candidato_dict in candidatos_lst:
+
+                #Comprueba que la experiencia dentro de los candidatos disponibles sea superior o igual a la introducida por el usuario
+                if candidato_dict["experiencia"] >= experiencia_introducida_int:
+
+                    #Añade esos candidatos a la lista
+                    candidatos_filtrados_lst.append(candidato_dict)
+
+            #En caso de que la lista este vacía y no haya candidatos
+            if len(candidatos_filtrados_lst) == 0:
+                print("No hay candidatos disponibles con esa experiencia.")
+
+            else:
+
+                #Muestra los candidatos disponibles con esa experiencia
+                print()
+                print("CANDIDATOS DISPONIBLES CON", experiencia_introducida_int, "AÑOS DE EXPERIENCIA")
+                print("------------------------------------------")
+
+                for candidato_dict in candidatos_filtrados_lst:
+
+                    for clave, valor in candidato_dict.items():
+
+                        print(" -", clave, ":", valor)
+
+                    print("-------------------------------")
+            break #Sale del bucle
+
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
     
@@ -793,6 +852,9 @@ def fn_modificar_candidato():
 
                     #Solicita que dato desea modificar
                     dato_modificar_str = input("\n¿Qué dato deseas modificar? ")
+                    
+                    #Eliminar espacios (inicio/final)
+                    dato_modificar_str = dato_modificar_str.strip()
 
                     #MODIFICAR NOMBRE
                     if dato_modificar_str == "1":
@@ -974,7 +1036,51 @@ def fn_buscar_candidato():
 
 #OPCIÓN 5. FILTRAR CANDIDATOS
 def fn_filtrar_candidatos():
-    print(":)")
+
+    os.system('cls')
+
+    #Comprobar si hay candidatos registrados en el archivo.json
+    if len(candidatos_lst) == 0:
+        print("Aún no hay candidatos disponibles.")
+
+    else:
+
+        #Bucle infinito para que el usuario seleccione una opción valida
+        while True:
+            print("""
+            -------------------------------
+                LISTA DE CANDIDATOS
+            -------------------------------
+            
+            1. Filtrar por experiencia
+            2. Filtrar por estudios
+            3. Filtrar por competencias técnicas
+            0. Salir
+            """)
+
+            #Solicita que filtro quiere usar
+            filtro_seleccionado_str = input("¿Qué tipo de filtro deseas utilizar?: ")
+            
+            #Elimina espacios(inicio/final)
+            filtro_seleccionado_str = filtro_seleccionado_str.strip()
+
+            #Funcion por experiencia
+            if filtro_seleccionado_str == "1":
+                fn_filtrar_experiencia()
+
+            #Filtrar por nivel estudios
+            elif filtro_seleccionado_str == "2":
+                fn_filtrar_estudios()
+
+            #Filtrar por competencias técnicas
+            elif filtro_seleccionado_str == "3":
+                fn_filtrar_competencias()
+
+            elif filtro_seleccionado_str == "0":
+                break
+
+            else:
+                print("Opción no disponible.")
 
 #OPCIÓN 6. ELIMINAR CANDIDATOS
 def fn_eliminar_candidato():
