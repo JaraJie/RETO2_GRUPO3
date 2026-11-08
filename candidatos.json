@@ -1,7 +1,7 @@
 [
     {
         "dni": "12345678A",
-        "nombre": "Jose Mari",
+        "nombre": "Maria Jose",
         "apellidos": "Garcia Lopez",
         "edad": 30,
         "ciudad": "San Sebastian - Donostia",
@@ -13,13 +13,13 @@
         "puesto_solicitado": "Programador Senior",
         "competencias_tecnicas": [
             "Python",
-            "Java",
+            "Nava",
             "Css",
             "Html",
-            "Sql"
+            "Sql",
+            "C++"
         ],
         "idiomas": [
-            "Euskera",
             "Castellano",
             "Ingles"
         ],
