@@ -681,45 +681,62 @@ def fn_filtrar_competencias():
 
     print("\n--- FILTRAR POR COMPETENCIAS TÉCNICAS ---")
 
+    #Crear lista para almacenar las competencias guardadas en json
     competencias_disponibles_lst = []
 
+    #Recorrer candidatos disponibles dentro de la lista de candidatos
     for candidato_dict in candidatos_lst:
 
+        #Recorrer las competencias de cada candidato
         for competencia_str in candidato_dict["competencias_tecnicas"]:
+
+            #Añadir las competencias técnicas de cada candidato a una lista
             competencias_disponibles_lst.append(competencia_str)
 
+    #Convertr lista en set para evitar repeticiones
     competencias_disponibles_set = set(competencias_disponibles_lst)
 
+    #Mostrar las competencias técnicas disponibles de los candidatos
     print("\nCOMPETENCIAS TÉCNICAS DISPONIBLES:")
     print("------------------------------------------")
     for competencia_str in competencias_disponibles_set:
 
         print(" -", competencia_str)
 
+    #Bucle infinito hasta que el usuario escriba una competencia correcta
     while True:
 
+        #Solicitar la competencia técnica al usuario
         competencia_introducida_str = input("\nIntroduzca la competencia técnica que desea buscar: ")
 
+        #Borrar espacios (inicio/fin) y convertir la primera letra en mayúsculas y el resto en minúsculas
         competencia_introducida_str = competencia_introducida_str.strip().title()
 
+        #Comprobar que el campo no está vacío
         if competencia_introducida_str == "":
             print("Tienes que introducir una competencia técnica.")
 
         else:
 
+            #Comrpobar si la competencia introducida existe entre las competencias disponibles
             if competencia_introducida_str not in competencias_disponibles_set:
                 print("No hay candidatos disponibles con esa competencia técnica.")
 
             else:
 
+                #Crear lista de candidatos filtrados con la competencia pedida
                 candidatos_filtrados_lst = []
 
+                #Recorrer candidatos dentro de la lista
                 for candidato_dict in candidatos_lst:
 
+                    #Comprobar si el candidato tiene la competencia pedida
                     if competencia_introducida_str in candidato_dict["competencias_tecnicas"]:
 
+                        #Añadir candidato a la lista de candidatos disponibles con esa cometencia
                         candidatos_filtrados_lst.append(candidato_dict)
 
+                #Mostrar los candidatos disponibles con esa competencia técnica
                 print()
                 print("CANDIDATOS DISPONIBLES CON LA COMPETENCIA:", competencia_introducida_str)
                 print("------------------------------------------")
@@ -730,7 +747,8 @@ def fn_filtrar_competencias():
 
                         print(" -", clave, ":", valor)
                     print("-------------------------------")
-            break
+            
+            break #Sale del bucle
 
 # OPCIÓN 1. REGISTRAR NUEVO CANDIDATO
 def fn_registrar_candidato():
