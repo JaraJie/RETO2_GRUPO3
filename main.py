@@ -725,6 +725,16 @@ def fn_registrar_candidato():
 #OPCIÓN 2. MODIFICAR CANDIDATO
 def fn_modificar_candidato():
 
+    """
+    Permite modificar los datos personales y profesionales
+    de un candidato ya registrado
+
+    Muestra los candidatos disponibles (su DNI), permite seleccionar
+    qué datos modificar y comprueba si la nueva información es correcta
+
+    Guarda los cambios realizados en el archivo.json
+    """
+
     if len(candidatos_lst) == 0:
         print("Aún no hay candidatos disponibles.")
 
@@ -886,6 +896,13 @@ def fn_modificar_candidato():
 
 #OPCIÓN 3. MOSTRAR TODOS LOS CANDIDATOS
 def fn_mostrar_candidatos():
+
+    """
+    Muestra la información de todos los candidatos registrados
+
+    Comprueba si existen candidatos en la lista y
+    recorre la lista mostrando los datos de cada candidato
+    """
 
     #Comprobar si la lista de candidatos esta vacía
     if len(candidatos_lst) == 0:
