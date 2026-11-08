@@ -735,28 +735,37 @@ def fn_modificar_candidato():
     Guarda los cambios realizados en el archivo.json
     """
 
+    #Comprobar si existen candidatos
     if len(candidatos_lst) == 0:
         print("Aún no hay candidatos disponibles.")
 
+    #En caso de que existan muestra lo siguiente.
     else:
 
+        #Muestra los DNI de los candidatos disponibles
         print("--- CANDIDATOS DISPONIBLES ---")
 
         for candidato_dict in candidatos_lst:
             print(" -", candidato_dict["dni"])
 
+        #Solitar DNI del candidato que desea modificar
         dni_str = input("Introduce el DNI del candidato que deseas modificar: ")
 
+        #Eliminar espacios (inicio/final) y convertir la letra en mayúscula
         dni_str = dni_str.strip().upper()
 
+        #Crear una variable para comprobar si el candidato existe
         candidato_encontrado_bool = False
 
+        #Recorre la lista de candidatos para buscar si el DNI introducido coincide
         for candidato_dict in candidatos_lst:
 
             if candidato_dict["dni"] == dni_str:
 
+                #En caso de que el DNI coincida el valor se volvera cierto
                 candidato_encontrado_bool = True
 
+                #Muestra los datos del candidato
                 print("""
                 -------------------------------
                     MODIFICAR CANDIDATO
@@ -778,10 +787,13 @@ def fn_modificar_candidato():
                 print("12. Idiomas:", candidato_dict["idiomas"])
                 print("0. Guardar y salir")
 
+                #Bucle infinito para permitir modificar varios datos hasta que se pulse salir
                 while True:
 
+                    #Solicita que dato desea modificar
                     dato_modificar_str = input("¿Qué dato deseas modificar? ")
 
+                    #MODIFICAR NOMBRE
                     if dato_modificar_str == "1":
                         nombre_nuevo_str = input("Nuevo nombre: ")
                         nombre_nuevo_str = fn_limpiar_nombre(nombre_nuevo_str)
@@ -792,6 +804,7 @@ def fn_modificar_candidato():
 
                         candidato_dict["nombre"] = nombre_nuevo_str
 
+                    #MODIFICAR APELLIDOS
                     elif dato_modificar_str == "2":
                         apellidos_nuevos_str = input("Nuevos apellidos: ")
                         apellidos_nuevos_str = fn_limpiar_apellidos(apellidos_nuevos_str)
@@ -802,6 +815,7 @@ def fn_modificar_candidato():
 
                         candidato_dict["apellidos"] = apellidos_nuevos_str
 
+                    #MODIFICAR EDAD
                     elif dato_modificar_str == "3":
                         edad_nueva_int = input("Nueva edad: ")
                         edad_nueva_int = fn_validar_edad(edad_nueva_int)
@@ -812,6 +826,7 @@ def fn_modificar_candidato():
 
                         candidato_dict["edad"] = edad_nueva_int
 
+                    #MODIFICAR CIUDAD
                     elif dato_modificar_str == "4":
                         ciudad_nueva_str = input("Nueva ciudad: ")
                         ciudad_nueva_str = fn_limpiar_ciudad(ciudad_nueva_str)
@@ -822,6 +837,7 @@ def fn_modificar_candidato():
 
                         candidato_dict["ciudad"] = ciudad_nueva_str
 
+                    #MODIFICAR EMIAL
                     elif dato_modificar_str == "5":
                         email_nuevo_str = input("Nuevo email: ")
                         email_nuevo_str = fn_validar_email(email_nuevo_str)
@@ -832,6 +848,7 @@ def fn_modificar_candidato():
 
                         candidato_dict["email"] = email_nuevo_str
 
+                    #MODIFICAR TELÉFONO
                     elif dato_modificar_str == "6":
                         telefono_nuevo_str = input("Nuevo teléfono: ")
                         telefono_nuevo_str = fn_validar_telefono(telefono_nuevo_str)
@@ -842,9 +859,11 @@ def fn_modificar_candidato():
 
                         candidato_dict["telefono"] = telefono_nuevo_str
 
+                    #MODIFICAR ESTUDIOS
                     elif dato_modificar_str == "7":
                         candidato_dict["estudios"] = fn_validar_estudios()
 
+                    #MODIFICAR TITULACIÓN
                     elif dato_modificar_str == "8":
                         titulacion_nueva_str = input("Nueva titulación: ")
                         titulacion_nueva_str = fn_validar_titulacion(titulacion_nueva_str)
@@ -854,7 +873,8 @@ def fn_modificar_candidato():
                             titulacion_nueva_str = fn_validar_titulacion(titulacion_nueva_str)
 
                         candidato_dict["titulacion"] = titulacion_nueva_str
-
+                    
+                    #MODIFICAR EXPERIENCIA
                     elif dato_modificar_str == "9":
                         experiencia_nueva_int = input("Nuevos años de experiencia: ")
                         experiencia_nueva_int = fn_validar_experiencia(experiencia_nueva_int)
@@ -865,6 +885,7 @@ def fn_modificar_candidato():
 
                         candidato_dict["experiencia"] = experiencia_nueva_int
 
+                    #MODIFICAR PUESTO
                     elif dato_modificar_str == "10":
                         puesto_nuevo_str = input("Nuevo puesto solicitado: ")
                         puesto_nuevo_str = fn_validar_puesto(puesto_nuevo_str)
@@ -875,21 +896,30 @@ def fn_modificar_candidato():
 
                         candidato_dict["puesto_solicitado"] = puesto_nuevo_str
 
+                    #MOFICAR COMPETENCIAS TÉCNICAS
                     elif dato_modificar_str == "11":
+
+                        #Mostrar mensaje de que se eliminaran y sobreescribiran las competencias
                         print("AVISO: Se eliminarán todas las competencias anteriores.")
                         candidato_dict["competencias_tecnicas"] = fn_introducir_competencias()
 
+                    #MODIFICAR IDIOMAS
                     elif dato_modificar_str == "12":
+
+                        #Mostrar mensaje de que se eliminaran y sobreescribiran los idiomas
                         print("AVISO: Se eliminarán todos los idiomas anteriores.")
                         candidato_dict["idiomas"] = fn_introducir_idiomas()
 
+                    #Salir del bucle y guardar datos en archivo.json
                     elif dato_modificar_str == "0":
                         fn_guardar_candidatos()
                         break
 
+                    #En caso de que pulse una opción no disponible
                     else:
                         print("Opción no válida.")
 
+        #Si el candidato no se ha encontrado
         if candidato_encontrado_bool == False:
             print("No se ha encontrado ningún candidato con ese DNI.")
             print("Comprueba que has introducido correctamente el DNI (8 números y 1 letra).")
