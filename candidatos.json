@@ -1,0 +1,49 @@
+[
+    {
+        "dni": "12345678A",
+        "nombre": "Jose Mari",
+        "apellidos": "Garcia Lopez",
+        "edad": 28,
+        "ciudad": "Donostia - San Sebastian",
+        "email": "josemari@gmail.com",
+        "telefono": "123456789",
+        "estudios": "Master",
+        "titulacion": "Master En Programacion",
+        "experiencia": 6,
+        "puesto_solicitado": "Programador Senior",
+        "competencias_tecnicas": [
+            "Html",
+            "Css",
+            "Python",
+            "Java"
+        ],
+        "idiomas": [
+            "Ingles",
+            "Euskera",
+            "Castellano"
+        ],
+        "estado": "En revision"
+    },
+    {
+        "dni": "12345678B",
+        "nombre": "Maria",
+        "apellidos": "Lopez Redondo",
+        "edad": 23,
+        "ciudad": "Lezo",
+        "email": "maria@gmail.com",
+        "telefono": "012345678",
+        "estudios": "Grado universitario",
+        "titulacion": "Magisterio",
+        "experiencia": 0,
+        "puesto_solicitado": "Profesora De Primaria",
+        "competencias_tecnicas": [
+            "Html",
+            "Css"
+        ],
+        "idiomas": [
+            "Euskera",
+            "Castellano"
+        ],
+        "estado": "En revision"
+    }
+]
