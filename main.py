@@ -44,7 +44,6 @@ def fn_cargar_candidatos():
         else:
             candidatos_lst = json.loads(contenido_str)'''
 
-
 #Función para validar DNI
 def fn_validar_dni(dni_validar_str):
 
@@ -123,7 +122,6 @@ def fn_limpiar_nombre(nombre_validar_str):
         return False
 
     return nombre_validar_str
-
 
 #Función limpiar y validar apellidos
 def fn_limpiar_apellidos(apellidos_validar_str):
@@ -970,31 +968,25 @@ def fn_mostrar_candidatos():
 
         print("\n--- FIN DE LA LISTA DE CANDIDATOS ---")
 
-
 #OPCIÓN 4. BUSCAR CANDIDATO
 def fn_buscar_candidato():
     print(":)")
-
 
 #OPCIÓN 5. FILTRAR CANDIDATOS
 def fn_filtrar_candidatos():
     print(":)")
 
-
 #OPCIÓN 6. ELIMINAR CANDIDATOS
 def fn_eliminar_candidato():
     print(":)")
-
 
 #OPCIÓN 7. GESTIONAR CANDIDATURAS
 def fn_gestionar_candidaturas():
     print(":)")
 
-
 #OPCIÓN 8. EXPORTAR INFORMES
 def fn_exportar_informes():
     print(":)")
-
 
 #MENÚ PRINCIPAL TALENTCONNECT
 def fn_menu():
