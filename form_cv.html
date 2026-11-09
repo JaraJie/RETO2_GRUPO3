@@ -50,7 +50,12 @@
         </p>
 
         <!-- EMPIEZA FORMULARIO -->
-        <form id="formularioCV" onsubmit="validarFormulario(event)">
+        <form
+            id="formularioCV"
+            action="http://localhost:8000"
+            method="POST"
+            onsubmit="return validarFormulario(event)"
+        >
 
             <!-- INFORMACIÓN PERSONAL-JARA-ASIER-->
             <h2>Información personal</h2>
