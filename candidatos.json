@@ -1,48 +1,68 @@
 [
     {
         "dni": "12345678A",
-        "nombre": "Maria Jose",
-        "apellidos": "Garcia Lopez",
-        "edad": 30,
-        "ciudad": "San Sebastian - Donostia",
-        "email": "josemari@gmail.com",
+        "nombre": "Juan",
+        "apellidos": "Lopez De Oro",
+        "edad": 25,
+        "ciudad": "Madrid",
+        "email": "juan@gmail.com",
         "telefono": "123456789",
-        "estudios": "Master",
-        "titulacion": "Master En Programacion",
-        "experiencia": 6,
-        "puesto_solicitado": "Programador Senior",
+        "estudios": "FP Medio",
+        "titulacion": "Fp Medio Informatica",
+        "experiencia": 0,
+        "puesto_solicitado": "Caja En Pc Box",
         "competencias_tecnicas": [
-            "Python",
-            "Nava",
-            "Css",
-            "Html",
-            "Sql",
-            "C++"
+            "Html"
         ],
         "idiomas": [
-            "Castellano",
-            "Ingles"
+            "Castellano"
         ],
         "estado": "En revision"
     },
     {
         "dni": "12345678B",
-        "nombre": "Maria",
-        "apellidos": "Rendondo Garcia",
-        "edad": 22,
-        "ciudad": "Lasarte",
-        "email": "maria@gmail.com",
+        "nombre": "Jose Mari",
+        "apellidos": "Alonso Rendondo",
+        "edad": 28,
+        "ciudad": "Renteria",
+        "email": "josemari@gmail.com",
         "telefono": "012345678",
-        "estudios": "FP Superior",
-        "titulacion": "Fp En Dam",
-        "experiencia": 1,
-        "puesto_solicitado": "Programador Junior",
+        "estudios": "Grado universitario",
+        "titulacion": "Grado Universitario En Big Data",
+        "experiencia": 4,
+        "puesto_solicitado": "Analista De Datos",
         "competencias_tecnicas": [
-            "Python",
-            "Html",
-            "Css"
+            "Sql",
+            "Nosql",
+            "Html"
         ],
         "idiomas": [
+            "Castellano",
+            "Ingles",
+            "Frances",
+            "Euskera"
+        ],
+        "estado": "En revision"
+    },
+    {
+        "dni": "12345678C",
+        "nombre": "Maria",
+        "apellidos": "Zabaleta Gonzalez",
+        "edad": 18,
+        "ciudad": "Lezo",
+        "email": "maria@gmail.com",
+        "telefono": "987654321",
+        "estudios": "Bachillerato",
+        "titulacion": "Bachillerato Cientifico",
+        "experiencia": 0,
+        "puesto_solicitado": "Asistenta Del Zara",
+        "competencias_tecnicas": [
+            "Atencion Al Clinete",
+            "Comunicacion",
+            "Buen Habla"
+        ],
+        "idiomas": [
+            "Euskera",
             "Castellano",
             "Ingles",
             "Frances"
@@ -50,23 +70,48 @@
         "estado": "En revision"
     },
     {
-        "dni": "12345678C",
+        "dni": "12345678D",
         "nombre": "Laura",
-        "apellidos": "Zabaleta Gonzalez",
-        "edad": 19,
-        "ciudad": "Lezo",
+        "apellidos": "Gonzalez Redondo",
+        "edad": 18,
+        "ciudad": "Lasarte",
         "email": "laura@gmail.com",
-        "telefono": "987654321",
-        "estudios": "FP Medio",
-        "titulacion": "Fp Informatico",
+        "telefono": "098765432",
+        "estudios": "Sin estudios",
+        "titulacion": "Ninguna",
         "experiencia": 0,
-        "puesto_solicitado": "Programador Junior",
+        "puesto_solicitado": "Camarera",
         "competencias_tecnicas": [
-            "Html",
-            "Css"
+            "Comunicacion"
         ],
         "idiomas": [
-            "Castellano"
+            "Castellano",
+            "Aleman"
+        ],
+        "estado": "En revision"
+    },
+    {
+        "dni": "12345678E",
+        "nombre": "Daniel",
+        "apellidos": "Santos Lopez",
+        "edad": 45,
+        "ciudad": "Barcelona",
+        "email": "daniel@gmail.com",
+        "telefono": "123456789",
+        "estudios": "Doctorado",
+        "titulacion": "Doctorado En Ingeneria Informatica",
+        "experiencia": 10,
+        "puesto_solicitado": "Ingeniero Senior",
+        "competencias_tecnicas": [
+            "Html",
+            "Css",
+            "Java",
+            "C++",
+            "Python"
+        ],
+        "idiomas": [
+            "Castellano",
+            "Ingles"
         ],
         "estado": "En revision"
     }
