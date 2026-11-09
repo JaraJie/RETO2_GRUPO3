@@ -1,4 +1,7 @@
-#Función para validar DNI
+#IMPORTAR LA LISTA DE CANDIDATOS DE ALMACENAMIENTO - JARA
+from almacenamiento import candidatos_lst
+
+#Función para validar DNI - JARA
 def fn_validar_dni(dni_validar_str):
 
     """
@@ -45,7 +48,7 @@ def fn_validar_dni(dni_validar_str):
     
     return dni_validar_str
 
-#Función limpiar y validar nombre
+#Función limpiar y validar nombre - JARA
 def fn_limpiar_nombre(nombre_validar_str):
 
     """
@@ -77,8 +80,7 @@ def fn_limpiar_nombre(nombre_validar_str):
 
     return nombre_validar_str
 
-
-#Función limpiar y validar apellidos
+#Función limpiar y validar apellidos - JARA
 def fn_limpiar_apellidos(apellidos_validar_str):
 
     """
@@ -109,7 +111,7 @@ def fn_limpiar_apellidos(apellidos_validar_str):
 
     return apellidos_validar_str
 
-#Función para validar edad
+#Función para validar edad - JARA
 def fn_validar_edad (edad_validar_str):
 
     """
@@ -146,7 +148,7 @@ def fn_validar_edad (edad_validar_str):
 
     return edad_validar_int
 
-#Función para limpiar y validar ciudad
+#Función para limpiar y validar ciudad - JARA
 def fn_limpiar_ciudad(ciudad_validar_str):
 
     """
@@ -177,7 +179,7 @@ def fn_limpiar_ciudad(ciudad_validar_str):
 
     return ciudad_validar_str
 
-#Función para limpiar y validar email
+#Función para limpiar y validar email - JARA
 def fn_validar_email(email_validar_str):
     
     """
@@ -228,7 +230,7 @@ def fn_validar_email(email_validar_str):
 
     return email_validar_str
 
-#Función para validar teléfono
+#Función para validar teléfono - JARA
 def fn_validar_telefono(telefono_validar_str):
      
     """
@@ -263,7 +265,7 @@ def fn_validar_telefono(telefono_validar_str):
 
     return telefono_validar_str
 
-#Función para seleccionar nivel de estudios
+#Función para seleccionar nivel de estudios - JARA
 def fn_validar_estudios():
      
     """
@@ -329,7 +331,7 @@ def fn_validar_estudios():
 
         return estudios_validar_str
 
-#Función para validar titulación
+#Función para validar titulación - JARA
 def fn_validar_titulacion(titulacion_validar_str):
 
     """
@@ -355,7 +357,7 @@ def fn_validar_titulacion(titulacion_validar_str):
 
     return titulacion_validar_str
     
-#Función para validar experiencia
+#Función para validar experiencia - JARA
 def fn_validar_experiencia(experiencia_validar_str):
 
     """
@@ -389,7 +391,7 @@ def fn_validar_experiencia(experiencia_validar_str):
 
     return experiencia_validar_int
 
-#Función para validar puesto solicitado
+#Función para validar puesto solicitado - JARA
 def fn_validar_puesto(puesto_validar_str):
 
     """
@@ -415,7 +417,7 @@ def fn_validar_puesto(puesto_validar_str):
 
     return puesto_validar_str
 
-#Función para introducir competencias técnicas
+#Función para introducir competencias técnicas - JARA
 def fn_introducir_competencias():
 
     """
@@ -466,7 +468,7 @@ def fn_introducir_competencias():
 
     return competencias_lst
 
-#Función para introducir idiomas
+#Función para introducir idiomas - JARA
 def fn_introducir_idiomas():
 
     """

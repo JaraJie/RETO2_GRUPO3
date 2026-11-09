@@ -1,8 +1,14 @@
-#IMPORTACIÓN DE OS Y JSON
+#IMPORTAR OS - JARA
 import os
-import json
 
-#Importar de candidatos.py las siguientes funciones
+#IMPORTACIÓN DE ALMACENAMIENTO - JARA
+from almacenamiento import (
+    candidatos_lst,
+    fn_guardar_candidatos,
+    fn_cargar_candidatos
+)
+
+#IMPORTACIÓN DE FUNCIONES DE CANDIDATOS - JARA
 from candidatos import (
     fn_registrar_candidato,
     fn_modificar_candidato,
@@ -14,50 +20,16 @@ from candidatos import (
     fn_exportar_informes
 )
 
-#LISTA DE CANDIDATOS
-candidatos_lst = []
-
-#FUNCIÓN PARA GUARDAR CANDIDATOS EN JSON
-def fn_guardar_candidatos():
-
-    """
-    Guardar la lista de candidatos en un archivo JSON
-
-    Almacenar los datos de candidatos_lst en candidatos.json
-    """
-
-    #Abrir archivo.json y escribir la lista de candidatos
-    with open("candidatos.json", "w") as x:
-        json.dump(candidatos_lst, x, indent=4)
-
-    print("\n--- CANDIDATOS GUARDADOS CORRECTAMENTE ---")
-
-#FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON
-def fn_cargar_candidatos():
-
-    """
-    Cargar los candidatos almacenados en el archivo JSON
-
-    Leer el contenido de candidatos.json y cargar los datos
-    para usarlos durante la ejecución del programa
-    """
-
-    #Abrir y leer el archivo.json
-    with open("candidatos.json", "r") as x:
-
-        #Todo lo que lea en el archivo.json estará en la siguiente variable
-        contenido_str = x.read()
-
-        #En caso de que el contenido este vacio creará una lista
-        if contenido_str == "":
-            candidatos_lst = []
-        
-        #Si no abrira el archivo y su contenido
-        else:
-            candidatos_lst = json.loads(contenido_str)
-
-#MENÚ PRINCIPAL TALENTCONNECT
+#MENÚ PRINCIPAL TALENTCONNECT - JARA
 def fn_menu():
+
+    """
+    Muestra el menú principal de TalentConnect
+
+    Permite acceder a las diferentes funcionalidades
+    del programa, ejecuta la opción seleccionada que
+    llama a la funcíon correspondiente
+    """
 
     #Bucle infinito acceder al menú hasta que se pulse la opción de salir
     while True:
@@ -122,8 +94,8 @@ def fn_menu():
 
         input("\nPulsa ENTER para volver al menú principal...")
 
-#Ejecuta la función con los cantitados guardados
-fn_cargar_candidatos()
+#Ejecuta la función con los cantitados guardados - JARA
+candidatos_lst = fn_cargar_candidatos(candidatos_lst)
 
-#Ejecuta el programa
+#Ejecuta el programa - JARA
 fn_menu()
