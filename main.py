@@ -20,14 +20,20 @@ def fn_guardar_candidatos():
 
     print("\n--- CANDIDATOS GUARDADOS CORRECTAMENTE ---")
 
-'''#FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON - JARA
-def fn_cargar_candidatos():
+#FUNCIÓN PARA CARGAR LOS CANDIDATOS DE JSON - JARA
+def fn_cargar_candidatos(cargar_candidatos_lst):
 
     """
     Cargar los candidatos almacenados en el archivo JSON
 
     Leer el contenido de candidatos.json y cargar los datos
     para usarlos durante la ejecución del programa
+
+    Argumentos:
+        cargar_candidatos_lst: lista donde se almacenarán los candidatos de json
+
+    Return:
+        lst: devuelve la lista de candidatos cargada desde json
     """
 
     #Abrir y leer el archivo.json
@@ -38,11 +44,13 @@ def fn_cargar_candidatos():
 
         #En caso de que el contenido este vacio creará una lista
         if contenido_str == "":
-            candidatos_lst = []
+            cargar_candidatos_lst = []
         
         #Si no abrira el archivo y su contenido
         else:
-            candidatos_lst = json.loads(contenido_str)'''
+            cargar_candidatos_lst = json.loads(contenido_str)
+
+        return cargar_candidatos_lst
 
 #Función para validar DNI - JARA
 def fn_validar_dni(dni_validar_str):
@@ -1370,22 +1378,8 @@ def fn_menu():
 
         input("\nPulsa ENTER para volver al menú principal...")
 
-'''#Ejecuta la función con los cantitados guardados - JARA
-fn_cargar_candidatos()'''
-
-#Abrir y leer el archivo.json - JARA
-with open("candidatos.json", "r") as x:
-
-    #Todo lo que lea en el archivo.json estará en la siguiente variable
-    contenido_str = x.read()
-
-    #En caso de que el contenido este vacio creará una lista
-    if contenido_str == "":
-        candidatos_lst = []
-    
-    #Si no abrira el archivo y su contenido
-    else:
-        candidatos_lst = json.loads(contenido_str)
+#Ejecuta la función con los cantitados guardados - JARA
+candidatos_lst = fn_cargar_candidatos(candidatos_lst)
 
 #Ejecuta el programa - JARA
 fn_menu()
