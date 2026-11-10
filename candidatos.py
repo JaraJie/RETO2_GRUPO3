@@ -490,9 +490,72 @@ def fn_filtrar_candidatos():
             else:
                 print("Opción no disponible.")
 
-#OPCIÓN 6. ELIMINAR CANDIDATOS
+#OPCIÓN 6. ELIMINAR CANDIDATOS Mikel
 def fn_eliminar_candidato():
-    print("W.I.P.")
+
+    os.system('cls')
+
+    #Comprobar si la lista de candidatos está vacía
+    if len(candidatos_lst) == 0:
+        print("Aún no hay candidatos disponibles.")
+
+    else:
+
+        print("""
+        -------------------------------
+             ELIMINAR CANDIDATO
+        -------------------------------""")
+
+        # contador de candidatos
+        candidato_int = 0
+
+         # recorremos los candidatos dentro de la lista de candidatos
+        for candidato_dict in candidatos_lst:
+
+            # sumamos 1 al contador del candidato
+            candidato_int += 1
+
+            print("\nCANDIDATO Nº", candidato_int)
+
+            # mostramos los datos de los candidatos disponibles(nombres, apellidos y dni)
+            print("Nombre:", candidato_dict["nombre"], candidato_dict["apellidos"])
+            print("DNI:", candidato_dict["dni"])
+
+        # solicitamos el input al usuario
+        dni_str = input("\nIntroduce el DNI del candidato que quieres eliminar: ")
+
+        # hacemos una variable con el valor de false 
+        candidato_encontrado_bool = False
+        
+        # recorremos los candidatos dentro de la lista de candidatos 
+        for candidato_dict in candidatos_lst:
+
+            # comprobamos que el dni introducido lo tenga un candidato
+            if candidato_dict["dni"] == dni_str:
+
+                # si encontramos el candidato  la variable se volvera true
+                candidato_encontrado_bool = True
+
+                # solicitamos input de nuevo 
+                confirmar_str = input("\n¿Estás seguro de que quieres eliminar este candidato? (si/no): ").lower()
+
+                # si la respuesta es afirmativo elimina el candidato de la lista
+                if confirmar_str == "si":
+
+                    candidatos_lst.remove(candidato_dict)
+
+                    print("\n--- CANDIDATO ELIMINADO CORRECTAMENTE ---")
+
+                    # guardamos los datos 
+                    fn_guardar_candidatos()
+
+                # si no la eliminacion se cancela (escribiendo no o cualquier otra cosa)
+                else:
+                    print("Eliminación cancelada.")
+
+        # en caso de que no haya candidatos con ese dni
+        if candidato_encontrado_bool == False:
+            print("No se ha encontrado ningún candidato con ese DNI.")
 
 #OPCIÓN 7. GESTIONAR CANDIDATURAS
 def fn_gestionar_candidaturas():
