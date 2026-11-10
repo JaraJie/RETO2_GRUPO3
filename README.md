@@ -16,6 +16,8 @@ El proyecto cuenta con tres páginas principales además de la página de inicio
 
 - **`form_cv.html`**: contiene un formulario para introducir datos personales, académicos y profesionales y enviar el currículum.
 
+![Página principal](assets/pagina_principal.png)
+
 ## Diseño y estilos - `Estilos.css`
 
 Para dar formato y diseñar las diferentes páginas de TalentConnect, hemos utilizado una hoja de estilos CSS externa llamada `Estilos.css`, que se encuentra dentro de la carpeta `style`.
@@ -83,6 +85,8 @@ Esta página contiene un formulario para que los usuarios puedan introducir sus 
 Al igual que en la página principal, cuenta con un encabezado que incluye el logo de TalentConnect y el menú de navegación para acceder al resto de páginas.
 
 También, cuenta con una pequeña introducción donde podemos ver el titulo acompañado de un pequeño texto.
+
+![Página formulario](assets/pagina_formulario.png)
 
 ### 1. Datos personales
 Este formulario recoge información necesaria para elaborar un CV. Incluye los siguientes campos:
@@ -171,3 +175,5 @@ Ambas páginas están destinadas a mostrar las ofertas de trabajo disponibles y 
 Por el momento, hemos añadido en las dos páginas el encabezado (header), que incluye el logo y el menú de navegación, manteniendo la misma estética que en el resto del proyecto.
 
 Además, hemos incorporado un mensaje de «COMING SOON» en grande para indicar que ambas secciones estarán disponibles próximamente.
+
+![Página Coming Soon](assets/pagina_comingsoon.png)
