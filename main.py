@@ -1190,7 +1190,7 @@ def fn_mostrar_candidatos():
 
         print("\n--- FIN DE LA LISTA DE CANDIDATOS ---")
 
-#OPCIÓN 4. BUSCAR CANDIDATO
+#OPCIÓN 4. BUSCAR CANDIDATO - ASIER
 def fn_buscar_candidato():
     print("W.I.P.")
 
@@ -1244,7 +1244,7 @@ def fn_filtrar_candidatos():
             else:
                 print("Opción no disponible.")
 
-#OPCIÓN 6. ELIMINAR CANDIDATOS Mikel
+#OPCIÓN 6. ELIMINAR CANDIDATOS - MIKEL
 def fn_eliminar_candidato():
 
     os.system('cls')
@@ -1311,7 +1311,7 @@ def fn_eliminar_candidato():
         if candidato_encontrado_bool == False:
             print("No se ha encontrado ningún candidato con ese DNI.")
 
-#OPCIÓN 7. GESTIONAR CANDIDATURAS
+#OPCIÓN 7. GESTIONAR CANDIDATURAS - XABIER
 def fn_gestionar_candidaturas():
     print("W.I.P.")
 
